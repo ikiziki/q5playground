@@ -3,6 +3,8 @@
 
 console.log("quadtree loaded")
 
+
+
 class CircFinder {
 	constructor(x, y, radius) {
 		this.x = x ?? 0;
@@ -49,6 +51,15 @@ class QuadTree {
 	}
 	
 	subdivide(){
+		if (this.subdivided) return;
+		if (this.depth >= this.maxDepth) return;
+		
+		let halfwidth = this.width/2;
+		let halfheight = this.height/2;
+		
+		this.children = [
+			
+		]
 	}
 	
 	clear() {
