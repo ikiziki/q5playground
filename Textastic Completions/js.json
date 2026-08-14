@@ -1,0 +1,5221 @@
+{
+  "description": "Textastic Code Completion for JavaScript (Modern ES2024 + Q5 + Matter.js 0.20.0 + Howler.js 2.2.4 + Q5play)",
+  "uuid": "DE267669-E66E-400A-ACEA-BD906DC2B812",
+  "completionSets": [
+    {
+      "name": "js.keywords.control",
+      "defaultAppend": "",
+      "strings": [
+        "throw",
+        "in",
+        "return",
+        "void",
+        {
+          "string": "break",
+          "append": ";"
+        },
+        {
+          "string": "continue",
+          "append": ";"
+        },
+        {
+          "string": "if",
+          "append": " (${1:condition}) {\n\t$0\n}"
+        },
+        {
+          "string": "else",
+          "append": " {\n\t$0\n}"
+        },
+        {
+          "string": "switch",
+          "append": " (${1:expression}) {\n\t$0\n}"
+        },
+        {
+          "string": "case",
+          "append": " ${1:value}:\n\t$0"
+        },
+        {
+          "string": "default",
+          "append": ":\n\t$0"
+        },
+        {
+          "string": "for",
+          "append": " (let ${1:i} = 0; ${1:i} < ${2:array}.length; ${1:i}++) {\n\t$0\n}"
+        },
+        {
+          "string": "forin",
+          "replace": "for (const ${1:key} in ${2:object}) {\n\t$0\n}"
+        },
+        {
+          "string": "forof",
+          "replace": "for (const ${1:item} of ${2:iterable}) {\n\t$0\n}"
+        },
+        {
+          "string": "forawait",
+          "replace": "for await (const ${1:item} of ${2:asyncIterable}) {\n\t$0\n}"
+        },
+        {
+          "string": "while",
+          "append": " (${1:condition}) {\n\t$0\n}"
+        },
+        {
+          "string": "do",
+          "append": " {\n\t$0\n} while (${1:condition});"
+        },
+        {
+          "string": "try",
+          "append": " {\n\t$0\n}"
+        },
+        {
+          "string": "catch",
+          "append": " (${1:error}) {\n\t$0\n}"
+        },
+        {
+          "string": "finally",
+          "append": " {\n\t$0\n}"
+        },
+        {
+          "string": "with",
+          "append": " (${1:object}) {\n\t$0\n}"
+        },
+        {
+          "string": "using",
+          "append": " (${1:resource}) {\n\t$0\n}"
+        },
+        {
+          "string": "await using",
+          "append": " (${1:resource}) {\n\t$0\n}"
+        },
+        {
+          "string": "async function",
+          "append": " ${1:name}(${2:params}) {\n\t$0\n}"
+        },
+        {
+          "string": "arrow",
+          "replace": "(${1:params}) => {\n\t$0\n}"
+        },
+        {
+          "string": "async arrow",
+          "replace": "async (${1:params}) => {\n\t$0\n}"
+        },
+        {
+          "string": "await",
+          "append": " ${1:expression}"
+        },
+        {
+          "string": "yield",
+          "append": " ${1:expression}"
+        },
+        {
+          "string": "class",
+          "append": " ${1:ClassName} {\n\tconstructor(${2:params}) {\n\t\t$0\n\t}\n}"
+        },
+        {
+          "string": "class options",
+          "replace": "class ${1:ClassName} {\n\tconstructor(options = {}) {\n\t\t${2:this.prop = options.prop ?? defaultValue;}\n\t\t$0\n\t}\n}"
+        },
+        {
+          "string": "class extends",
+          "replace": "class ${1:ClassName} extends ${2:BaseClass} {\n\tconstructor(${3:params}) {\n\t\tsuper(${4:args});\n\t\t$0\n\t}\n}"
+        },
+        {
+          "string": "import",
+          "append": " ${1:module} from '${2:module-name}';"
+        },
+        {
+          "string": "import()",
+          "replace": "import('${1:module}')"
+        },
+        {
+          "string": "export",
+          "append": " ${1:default} ${2:name};"
+        },
+        {
+          "string": "export default",
+          "append": " ${1:name};"
+        },
+        {
+          "string": "new",
+          "append": " ${1:ClassName}(${2:args})"
+        },
+        {
+          "string": "typeof",
+          "append": " ${1:variable}"
+        },
+        {
+          "string": "instanceof",
+          "append": " ${1:variable} instanceof ${2:Class}"
+        },
+        {
+          "string": "debugger",
+          "append": ";"
+        }
+      ]
+    },
+    {
+      "name": "js.keywords.control.else-if",
+      "strings": [
+        {
+          "string": "else if",
+          "append": " (${1:condition}) {\n\t$0\n}"
+        }
+      ]
+    },
+    {
+      "name": "js.keywords",
+      "defaultAppend": "",
+      "strings": [
+        "delete",
+        "super",
+        "this",
+        "var",
+        "instanceof",
+        "typeof",
+        "Infinity",
+        "undefined",
+        "NaN",
+        "true",
+        "false",
+        "null",
+        {
+          "string": "function",
+          "append": " ${1:name}($2) {\n\t$0\n}"
+        }
+      ]
+    },
+    {
+      "name": "js.keywords.modern",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "let",
+          "append": " ${1:name} = $0"
+        },
+        {
+          "string": "const",
+          "append": " ${1:name} = $0"
+        },
+        "static",
+        "get",
+        "set",
+        "of",
+        "from",
+        "as",
+        "abstract",
+        "override",
+        "satisfies",
+        {
+          "string": "structuredClone",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "queueMicrotask",
+          "append": "(${1:fn})"
+        },
+        {
+          "string": "requestAnimationFrame",
+          "append": "(${1:callback})"
+        },
+        {
+          "string": "cancelAnimationFrame",
+          "append": "(${1:id})"
+        },
+        {
+          "string": "fetch",
+          "append": "('${1:url}')"
+        },
+        {
+          "string": "atob",
+          "append": "('${1:base64}')"
+        },
+        {
+          "string": "btoa",
+          "append": "('${1:string}')"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects",
+      "defaultAppend": "($1)",
+      "strings": [
+        "Array",
+        "Boolean",
+        "Date",
+        "Error",
+        "Function",
+        "Number",
+        "Object",
+        "RegExp",
+        "String",
+        "Image",
+        "Node"
+      ]
+    },
+    {
+      "name": "js.native-objects.modern",
+      "defaultAppend": "($1)",
+      "strings": [
+        "Promise",
+        "Map",
+        "Set",
+        "WeakMap",
+        "WeakSet",
+        "WeakRef",
+        "FinalizationRegistry",
+        "Symbol",
+        "Proxy",
+        "Reflect",
+        "ArrayBuffer",
+        "DataView",
+        "Iterator",
+        "URL",
+        "URLSearchParams",
+        "AbortController",
+        "AbortSignal",
+        "MutationObserver",
+        "IntersectionObserver",
+        "ResizeObserver",
+        "Worker",
+        "Blob",
+        "File",
+        "FormData",
+        "Headers",
+        "Request",
+        "Response",
+        "ReadableStream",
+        "WritableStream",
+        "TextDecoder",
+        "TextEncoder",
+        "Int8Array",
+        "Uint8Array",
+        "Uint8ClampedArray",
+        "Int16Array",
+        "Uint16Array",
+        "Int32Array",
+        "Uint32Array",
+        "Float32Array",
+        "Float64Array",
+        "BigInt64Array",
+        "BigUint64Array"
+      ]
+    },
+    {
+      "name": "js.native-objects.static",
+      "strings": [
+        "Date",
+        "Math",
+        "Number",
+        "String",
+        "Node"
+      ]
+    },
+    {
+      "name": "js.native-objects.static.modern",
+      "strings": [
+        "Promise",
+        "JSON",
+        "console",
+        "Array",
+        "Object",
+        "Reflect",
+        "Symbol"
+      ]
+    },
+    {
+      "name": "js.native-objects.Date",
+      "strings": [
+        {
+          "string": "UTC",
+          "append": "(${1:yyyy}, ${2:mm}, ${3:dd}${4:, ${5:hh}, ${6:mm}, ${7:ss}, ${8:ms}})"
+        },
+        {
+          "string": "now",
+          "append": "()"
+        },
+        {
+          "string": "parse",
+          "append": "(${1:dateString})"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.Math",
+      "strings": [
+        "E",
+        "LN2",
+        "LN10",
+        "LOG2E",
+        "LOG10E",
+        "PI",
+        "SQRT1_2",
+        "SQRT2",
+        {
+          "string": "abs",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "acos",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "acosh",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "asin",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "asinh",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "atan",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "atanh",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "atan2",
+          "append": "(${1:y}, ${2:x})"
+        },
+        {
+          "string": "cbrt",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "ceil",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "clamp",
+          "append": "(${1:value}, ${2:min}, ${3:max})"
+        },
+        {
+          "string": "clz32",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "cos",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "cosh",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "exp",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "expm1",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "f16round",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "floor",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "fround",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "hypot",
+          "append": "(${1:a}, ${2:b})"
+        },
+        {
+          "string": "imul",
+          "append": "(${1:a}, ${2:b})"
+        },
+        {
+          "string": "log",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "log1p",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "log2",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "log10",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "max",
+          "append": "(${1:number1}, ${2:number2})"
+        },
+        {
+          "string": "min",
+          "append": "(${1:number1}, ${2:number2})"
+        },
+        {
+          "string": "pow",
+          "append": "(${1:base}, ${2:exp})"
+        },
+        {
+          "string": "random",
+          "append": "()"
+        },
+        {
+          "string": "round",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "sign",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "sin",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "sinh",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "sqrt",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "sumPrecise",
+          "append": "([${1:numbers}])"
+        },
+        {
+          "string": "tan",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "tanh",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "trunc",
+          "append": "(${1:number})"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.Number",
+      "strings": [
+        "MAX_VALUE",
+        "MIN_VALUE",
+        "MAX_SAFE_INTEGER",
+        "MIN_SAFE_INTEGER",
+        "NEGATIVE_INFINITY",
+        "POSITIVE_INFINITY",
+        "EPSILON",
+        "NaN",
+        {
+          "string": "isFinite",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "isInteger",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "isNaN",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "isSafeInteger",
+          "append": "(${1:number})"
+        },
+        {
+          "string": "parseFloat",
+          "append": "(${1:string})"
+        },
+        {
+          "string": "parseInt",
+          "append": "(${1:string}, ${2:radix})"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.String",
+      "strings": [
+        {
+          "string": "fromCharCode",
+          "append": "(${1:num1}${2:, ${3:num2}})"
+        },
+        {
+          "string": "fromCodePoint",
+          "append": "(${1:codePoint1})"
+        },
+        {
+          "string": "raw",
+          "append": "(${1:template})"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.Node",
+      "strings": [
+        "ATTRIBUTE_NODE",
+        "CDATA_SECTION_NODE",
+        "COMMENT_NODE",
+        "DOCUMENT_FRAGMENT_NODE",
+        "DOCUMENT_NODE",
+        "DOCUMENT_TYPE_NODE",
+        "ELEMENT_NODE",
+        "ENTITY_NODE",
+        "ENTITY_REFERENCE_NODE",
+        "NOTATION_NODE",
+        "PROCESSING_INSTRUCTION_NODE",
+        "TEXT_NODE"
+      ]
+    },
+    {
+      "name": "js.native-objects.Promise",
+      "strings": [
+        {
+          "string": "resolve",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "reject",
+          "append": "(${1:reason})"
+        },
+        {
+          "string": "all",
+          "append": "([${1:promises}])"
+        },
+        {
+          "string": "allSettled",
+          "append": "([${1:promises}])"
+        },
+        {
+          "string": "any",
+          "append": "([${1:promises}])"
+        },
+        {
+          "string": "race",
+          "append": "([${1:promises}])"
+        },
+        {
+          "string": "try",
+          "append": "(${1:fn})"
+        },
+        {
+          "string": "withResolvers",
+          "append": "()"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.JSON",
+      "strings": [
+        {
+          "string": "parse",
+          "append": "(${1:text})"
+        },
+        {
+          "string": "stringify",
+          "append": "(${1:value}${2:, null, ${3:2}})"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.console",
+      "strings": [
+        {
+          "string": "log",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "warn",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "error",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "info",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "dir",
+          "append": "(${1:object})"
+        },
+        {
+          "string": "table",
+          "append": "(${1:data})"
+        },
+        {
+          "string": "time",
+          "append": "(${1:label})"
+        },
+        {
+          "string": "timeEnd",
+          "append": "(${1:label})"
+        },
+        {
+          "string": "group",
+          "append": "(${1:label})"
+        },
+        {
+          "string": "groupEnd",
+          "append": "()"
+        },
+        {
+          "string": "groupCollapsed",
+          "append": "(${1:label})"
+        },
+        {
+          "string": "assert",
+          "append": "(${1:condition}, '${2:message}')"
+        },
+        {
+          "string": "count",
+          "append": "(${1:label})"
+        },
+        {
+          "string": "countReset",
+          "append": "(${1:label})"
+        },
+        {
+          "string": "clear",
+          "append": "()"
+        },
+        {
+          "string": "trace",
+          "append": "()"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.Array.static",
+      "strings": [
+        {
+          "string": "from",
+          "append": "(${1:iterable}${2:, (${3:x}) => ${4:x}})"
+        },
+        {
+          "string": "isArray",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "of",
+          "append": "(${1:item1}${2:, ${3:item2}})"
+        },
+        {
+          "string": "fromAsync",
+          "append": "(${1:asyncIterable})"
+        }
+      ]
+    },
+    {
+      "name": "js.native-objects.Object.modern",
+      "strings": [
+        {
+          "string": "assign",
+          "append": "(${1:target}, ${2:source})"
+        },
+        {
+          "string": "create",
+          "append": "(${1:proto})"
+        },
+        {
+          "string": "entries",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "freeze",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "fromEntries",
+          "append": "(${1:entries})"
+        },
+        {
+          "string": "getOwnPropertyDescriptor",
+          "append": "(${1:obj}, '${2:prop}')"
+        },
+        {
+          "string": "getOwnPropertyDescriptors",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "getOwnPropertyNames",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "getOwnPropertySymbols",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "getPrototypeOf",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "hasOwn",
+          "append": "(${1:obj}, '${2:prop}')"
+        },
+        {
+          "string": "is",
+          "append": "(${1:value1}, ${2:value2})"
+        },
+        {
+          "string": "isFrozen",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "isSealed",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "keys",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "seal",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "setPrototypeOf",
+          "append": "(${1:obj}, ${2:proto})"
+        },
+        {
+          "string": "values",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "defineProperty",
+          "append": "(${1:obj}, '${2:prop}', { ${3:descriptor} })"
+        },
+        {
+          "string": "defineProperties",
+          "append": "(${1:obj}, { ${2:descriptors} })"
+        },
+        {
+          "string": "groupBy",
+          "append": "(${1:iterable}, (${2:item}) => ${3:key})"
+        }
+      ]
+    },
+    {
+      "name": "js.functions",
+      "defaultAppend": "",
+      "strings": [
+        "encodeURI",
+        "encodeURIComponent",
+        "escape",
+        "eval",
+        "parseFloat",
+        "unescape",
+        {
+          "string": "decodeURI",
+          "append": "(${1:encodedURI})"
+        },
+        {
+          "string": "decodeURIComponent",
+          "append": "(${1:encodedURIComponent})"
+        },
+        {
+          "string": "isFinite",
+          "append": "(${1:expression})"
+        },
+        {
+          "string": "isNaN",
+          "append": "(${1:expression})"
+        },
+        {
+          "string": "parseInt",
+          "append": "(${1:string}${2:, ${3:base}})"
+        }
+      ]
+    },
+    {
+      "name": "js.properties",
+      "strings": [
+        "constructor",
+        "length",
+        "message",
+        "name",
+        "caller",
+        "global",
+        "ignoreCase",
+        "lastIndex",
+        "multiline",
+        "source",
+        "prototype",
+        "size"
+      ]
+    },
+    {
+      "name": "js.methods",
+      "defaultAppend": "",
+      "strings": [
+        "toLocaleString",
+        "toString",
+        "valueOf",
+        "getDate",
+        "getDay",
+        "getFullYear",
+        "getHours",
+        "getMilliseconds",
+        "getMinutes",
+        "getMonth",
+        "getSeconds",
+        "getTime",
+        "getTimezoneOffset",
+        "getUTCDate",
+        "getUTCDay",
+        "getUTCFullYear",
+        "getUTCHours",
+        "getUTCMilliseconds",
+        "getUTCMinutes",
+        "getUTCMonth",
+        "getUTCSeconds",
+        "getYear",
+        "pop",
+        "reverse",
+        "shift",
+        "toDateString",
+        "toGMTString",
+        "toLocaleDateString",
+        "toLocaleTimeString",
+        "toTimeString",
+        "toUTCString",
+        "toLocaleLowerCase",
+        "toLocaleUpperCase",
+        "toLowerCase",
+        "toUpperCase",
+        {
+          "string": "concat",
+          "append": "(${1:array1}${2:, ${3:array2}})"
+        },
+        {
+          "string": "join",
+          "append": "(${1:delimiter})"
+        },
+        {
+          "string": "push",
+          "append": "(${1:item1}${2:, ${3:item2}})"
+        },
+        {
+          "string": "slice",
+          "append": "(${1:startIndex}${2:, ${3:endIndex}})"
+        },
+        {
+          "string": "sort",
+          "append": "(${1:(a, b) => a - b})"
+        },
+        {
+          "string": "splice",
+          "append": "(${1:startIndex}, ${2:deleteCount}${3:, ${4:item}})"
+        },
+        {
+          "string": "unshift",
+          "append": "(${1:item1}${2:, ${3:item2}})"
+        },
+        {
+          "string": "parse",
+          "append": "(${1:dateString})"
+        },
+        {
+          "string": "setDate",
+          "append": "(${1:dateInteger})"
+        },
+        {
+          "string": "setFullYear",
+          "append": "(${1:yearInteger})"
+        },
+        {
+          "string": "setHours",
+          "append": "(${1:hoursInteger})"
+        },
+        {
+          "string": "setMilliseconds",
+          "append": "(${1:msInteger})"
+        },
+        {
+          "string": "setMinutes",
+          "append": "(${1:minutesInteger})"
+        },
+        {
+          "string": "setMonth",
+          "append": "(${1:monthInteger})"
+        },
+        {
+          "string": "setSeconds",
+          "append": "(${1:secondsInteger})"
+        },
+        {
+          "string": "setTime",
+          "append": "(${1:msInteger})"
+        },
+        {
+          "string": "setUTCDate",
+          "append": "(${1:dateInteger})"
+        },
+        {
+          "string": "setUTCFullYear",
+          "append": "(${1:yearInteger})"
+        },
+        {
+          "string": "setUTCHours",
+          "append": "(${1:hoursInteger})"
+        },
+        {
+          "string": "setUTCMilliseconds",
+          "append": "(${1:msInteger})"
+        },
+        {
+          "string": "setUTCMinutes",
+          "append": "(${1:minutesInteger})"
+        },
+        {
+          "string": "setUTCMonth",
+          "append": "(${1:monthInteger})"
+        },
+        {
+          "string": "setUTCSeconds",
+          "append": "(${1:secondsInteger})"
+        },
+        {
+          "string": "setYear",
+          "append": "(${1:yearInteger})"
+        },
+        {
+          "string": "apply",
+          "append": "(${1:thisObject}, ${2:argumentsArray})"
+        },
+        {
+          "string": "call",
+          "append": "(${1:thisObject}${2:, ${3:arg1}})"
+        },
+        {
+          "string": "bind",
+          "append": "(${1:thisObject})"
+        },
+        {
+          "string": "toExponential",
+          "append": "(${1:fractionDigits})"
+        },
+        {
+          "string": "toFixed",
+          "append": "(${1:fractionDigits})"
+        },
+        {
+          "string": "toPrecision",
+          "append": "(${1:precisionDigits})"
+        },
+        {
+          "string": "hasOwnProperty",
+          "append": "(${1:propertyName})"
+        },
+        {
+          "string": "isPrototypeOf",
+          "append": "(${1:objectReference})"
+        },
+        {
+          "string": "exec",
+          "append": "(${1:string})"
+        },
+        {
+          "string": "test",
+          "append": "(${1:string})"
+        },
+        {
+          "string": "charAt",
+          "append": "(${1:positionIndex})"
+        },
+        {
+          "string": "charCodeAt",
+          "append": "(${1:positionIndex})"
+        },
+        {
+          "string": "codePointAt",
+          "append": "(${1:positionIndex})"
+        },
+        {
+          "string": "indexOf",
+          "append": "(${1:search}${2:, ${3:fromIndex}})"
+        },
+        {
+          "string": "lastIndexOf",
+          "append": "(${1:search}${2:, ${3:fromIndex}})"
+        },
+        {
+          "string": "localeCompare",
+          "append": "(${1:string2})"
+        },
+        {
+          "string": "match",
+          "append": "(${1:regex})"
+        },
+        {
+          "string": "replace",
+          "append": "(${1:search}, ${2:replacement})"
+        },
+        {
+          "string": "search",
+          "append": "(${1:regex})"
+        },
+        {
+          "string": "split",
+          "append": "(${1:delimiter}${2:, ${3:limit}})"
+        },
+        {
+          "string": "substr",
+          "append": "(${1:startIndex}${2:, ${3:length}})"
+        },
+        {
+          "string": "substring",
+          "append": "(${1:startIndex}, ${2:endIndex})"
+        },
+        {
+          "string": "trim",
+          "append": "()"
+        },
+        {
+          "string": "set(key, value)",
+          "replace": "set(${1:key}, ${2:value})"
+        },
+        {
+          "string": "get",
+          "append": "(${1:key})"
+        },
+        {
+          "string": "has",
+          "append": "(${1:key})"
+        },
+        {
+          "string": "delete",
+          "append": "(${1:key})"
+        },
+        {
+          "string": "clear",
+          "append": "()"
+        }
+      ]
+    },
+    {
+      "name": "js.methods.modern",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "find",
+          "append": "((${1:item}) => ${2:condition})"
+        },
+        {
+          "string": "findIndex",
+          "append": "((${1:item}) => ${2:condition})"
+        },
+        {
+          "string": "findLast",
+          "append": "((${1:item}) => ${2:condition})"
+        },
+        {
+          "string": "findLastIndex",
+          "append": "((${1:item}) => ${2:condition})"
+        },
+        {
+          "string": "flat",
+          "append": "(${1:depth})"
+        },
+        {
+          "string": "flatMap",
+          "append": "((${1:item}) => ${2:expression})"
+        },
+        {
+          "string": "fill",
+          "append": "(${1:value}${2:, ${3:start}, ${4:end}})"
+        },
+        {
+          "string": "copyWithin",
+          "append": "(${1:target}${2:, ${3:start}, ${4:end}})"
+        },
+        {
+          "string": "includes",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "at",
+          "append": "(${1:index})"
+        },
+        {
+          "string": "toSorted",
+          "append": "((${1:a}, ${2:b}) => ${3:a - b})"
+        },
+        {
+          "string": "toReversed",
+          "append": "()"
+        },
+        {
+          "string": "toSpliced",
+          "append": "(${1:start}, ${2:deleteCount})"
+        },
+        {
+          "string": "with",
+          "append": "(${1:index}, ${2:value})"
+        },
+        {
+          "string": "reduce",
+          "append": "((${1:acc}, ${2:item}) => ${3:acc}, ${4:initial})"
+        },
+        {
+          "string": "reduceRight",
+          "append": "((${1:acc}, ${2:item}) => ${3:acc}, ${4:initial})"
+        },
+        {
+          "string": "every",
+          "append": "((${1:item}) => ${2:condition})"
+        },
+        {
+          "string": "some",
+          "append": "((${1:item}) => ${2:condition})"
+        },
+        {
+          "string": "filter",
+          "append": "((${1:item}) => ${2:condition})"
+        },
+        {
+          "string": "map",
+          "append": "((${1:item}) => ${2:expression})"
+        },
+        {
+          "string": "forEach",
+          "append": "((${1:item}) => {\n\t$0\n})"
+        },
+        {
+          "string": "keys",
+          "append": "()"
+        },
+        {
+          "string": "values",
+          "append": "()"
+        },
+        {
+          "string": "entries",
+          "append": "()"
+        },
+        {
+          "string": "startsWith",
+          "append": "(${1:string})"
+        },
+        {
+          "string": "endsWith",
+          "append": "(${1:string})"
+        },
+        {
+          "string": "padStart",
+          "append": "(${1:length}${2:, '${3:char}'})"
+        },
+        {
+          "string": "padEnd",
+          "append": "(${1:length}${2:, '${3:char}'})"
+        },
+        {
+          "string": "trimStart",
+          "append": "()"
+        },
+        {
+          "string": "trimEnd",
+          "append": "()"
+        },
+        {
+          "string": "replaceAll",
+          "append": "(${1:search}, ${2:replacement})"
+        },
+        {
+          "string": "matchAll",
+          "append": "(${1:regex})"
+        },
+        {
+          "string": "repeat",
+          "append": "(${1:count})"
+        },
+        {
+          "string": "normalize() — string",
+          "replace": "normalize()"
+        },
+        {
+          "string": "isWellFormed",
+          "append": "()"
+        },
+        {
+          "string": "toWellFormed",
+          "append": "()"
+        },
+        {
+          "string": "then",
+          "append": "((${1:result}) => {\n\t$0\n})"
+        },
+        {
+          "string": "catch",
+          "append": "((${1:error}) => {\n\t$0\n})"
+        },
+        {
+          "string": "finally",
+          "append": "(() => {\n\t$0\n})"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.variables",
+      "strings": [
+        "document",
+        "history",
+        "localStorage",
+        "sessionStorage",
+        "location",
+        "screen",
+        "window",
+        "self",
+        "top",
+        "parent",
+        "navigator",
+        "performance",
+        "globalThis"
+      ]
+    },
+    {
+      "name": "js.dom.properties",
+      "strings": [
+        "accessKey",
+        "ariaLabel",
+        "attributes",
+        "childNodes",
+        "children",
+        "classList",
+        "className",
+        "clientHeight",
+        "clientWidth",
+        "contentEditable",
+        "dataset",
+        "dir",
+        "disabled",
+        "firstChild",
+        "firstElementChild",
+        "hidden",
+        "isConnected",
+        "lastChild",
+        "lastElementChild",
+        "id",
+        "innerHTML",
+        "innerText",
+        "lang",
+        "nextSibling",
+        "nextElementSibling",
+        "previousSibling",
+        "previousElementSibling",
+        "nodeName",
+        "nodeType",
+        "nodeValue",
+        "offsetHeight",
+        "offsetWidth",
+        "offsetLeft",
+        "offsetTop",
+        "offsetParent",
+        "outerHTML",
+        "ownerDocument",
+        "parentNode",
+        "parentElement",
+        "role",
+        "scrollHeight",
+        "scrollWidth",
+        "scrollLeft",
+        "scrollTop",
+        "shadowRoot",
+        "style",
+        "tabIndex",
+        "tagName",
+        "textContent",
+        "title",
+        "value",
+        "checked",
+        "type",
+        "src",
+        "href"
+      ]
+    },
+    {
+      "name": "js.dom.methods",
+      "defaultAppend": "",
+      "strings": [
+        "blur",
+        "click",
+        "focus",
+        "hasChildNodes",
+        {
+          "string": "normalize() — dom",
+          "replace": "normalize()"
+        },
+        {
+          "string": "addEventListener",
+          "append": "(${1:eventType}, ${2:listener}${3:, ${4:useCapture}})"
+        },
+        {
+          "string": "removeEventListener",
+          "append": "(${1:eventType}, ${2:listener})"
+        },
+        {
+          "string": "dispatchEvent",
+          "append": "(${1:event})"
+        },
+        {
+          "string": "appendChild",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "removeChild",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "replaceChild",
+          "append": "(${1:newNode}, ${2:oldNode})"
+        },
+        {
+          "string": "insertBefore",
+          "append": "(${1:newNode}, ${2:referenceNode})"
+        },
+        {
+          "string": "insertAdjacentHTML",
+          "append": "('${1:position}', ${2:html})"
+        },
+        {
+          "string": "insertAdjacentElement",
+          "append": "('${1:position}', ${2:element})"
+        },
+        {
+          "string": "insertAdjacentText",
+          "append": "('${1:position}', '${2:text}')"
+        },
+        {
+          "string": "cloneNode",
+          "append": "(${1:deep})"
+        },
+        {
+          "string": "getAttribute",
+          "append": "(${1:attributeName})"
+        },
+        {
+          "string": "setAttribute",
+          "append": "(${1:name}, ${2:value})"
+        },
+        {
+          "string": "removeAttribute",
+          "append": "(${1:name})"
+        },
+        {
+          "string": "hasAttribute",
+          "append": "(${1:name})"
+        },
+        {
+          "string": "toggleAttribute",
+          "append": "('${1:name}')"
+        },
+        {
+          "string": "querySelector",
+          "append": "('${1:selector}')"
+        },
+        {
+          "string": "querySelectorAll",
+          "append": "('${1:selector}')"
+        },
+        {
+          "string": "closest",
+          "append": "('${1:selector}')"
+        },
+        {
+          "string": "matches",
+          "append": "('${1:selector}')"
+        },
+        {
+          "string": "getElementsByTagName",
+          "append": "(${1:tagName})"
+        },
+        {
+          "string": "getElementsByClassName",
+          "append": "(${1:className})"
+        },
+        {
+          "string": "getBoundingClientRect",
+          "append": "()"
+        },
+        {
+          "string": "scrollIntoView",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "animate",
+          "append": "([${1:keyframes}], ${2:options})"
+        },
+        {
+          "string": "getAnimations",
+          "append": "()"
+        },
+        {
+          "string": "attachShadow",
+          "append": "({ mode: '${1:open}' })"
+        },
+        {
+          "string": "getRootNode",
+          "append": "()"
+        },
+        {
+          "string": "contains(node)",
+          "replace": "contains(${1:node})"
+        },
+        {
+          "string": "after",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "before",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "append",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "prepend",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "replaceWith",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "remove() — dom",
+          "replace": "remove()"
+        },
+        {
+          "string": "getAttributeNode",
+          "append": "(${1:attributeName})"
+        },
+        {
+          "string": "getAttributeNodeNS",
+          "append": "(${1:namespaceURI}, ${2:localName})"
+        },
+        {
+          "string": "getAttributeNS",
+          "append": "(${1:namespaceURI}, ${2:localName})"
+        },
+        {
+          "string": "getElementsByTagNameNS",
+          "append": "(${1:namespaceURI}, ${2:localName})"
+        },
+        {
+          "string": "hasAttributeNS",
+          "append": "(${1:namespaceURI}, ${2:localName})"
+        },
+        {
+          "string": "isSupported",
+          "append": "(${1:feature}, ${2:version})"
+        },
+        {
+          "string": "lookupNamespaceURI",
+          "append": "(${1:prefix})"
+        },
+        {
+          "string": "lookupPrefix",
+          "append": "(${1:namespaceURI})"
+        },
+        {
+          "string": "removeAttributeNode",
+          "append": "(${1:attributeNode})"
+        },
+        {
+          "string": "removeAttributeNS",
+          "append": "(${1:namespaceURI}, ${2:localName})"
+        },
+        {
+          "string": "setAttributeNode",
+          "append": "(${1:attributeObject})"
+        },
+        {
+          "string": "setAttributeNodeNS",
+          "append": "(${1:attributeObject})"
+        },
+        {
+          "string": "setAttributeNS",
+          "append": "(${1:namespaceURI}, ${2:qualifiedName}, ${3:value})"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.events",
+      "strings": [
+        "abort",
+        "animationend",
+        "animationiteration",
+        "animationstart",
+        "auxclick",
+        "beforeinput",
+        "beforeunload",
+        "blur",
+        "change",
+        "click",
+        "contextmenu",
+        "copy",
+        "cut",
+        "dblclick",
+        "drag",
+        "dragend",
+        "dragenter",
+        "dragleave",
+        "dragover",
+        "dragstart",
+        "drop",
+        "error",
+        "focus",
+        "focusin",
+        "focusout",
+        "fullscreenchange",
+        "gotpointercapture",
+        "hashchange",
+        "input",
+        "invalid",
+        "keydown",
+        "keypress",
+        "keyup",
+        "load",
+        "lostpointercapture",
+        "message",
+        "mousedown",
+        "mouseenter",
+        "mouseleave",
+        "mousemove",
+        "mouseout",
+        "mouseover",
+        "mouseup",
+        "offline",
+        "online",
+        "paste",
+        "pointercancel",
+        "pointerdown",
+        "pointerenter",
+        "pointerleave",
+        "pointermove",
+        "pointerout",
+        "pointerover",
+        "pointerup",
+        "popstate",
+        "reset",
+        "resize",
+        "scroll",
+        "select",
+        "selectionchange",
+        "submit",
+        "storage",
+        "touchcancel",
+        "touchend",
+        "touchmove",
+        "touchstart",
+        "transitionend",
+        "unload",
+        "visibilitychange",
+        "wheel"
+      ]
+    },
+    {
+      "name": "js.dom.document.properties",
+      "strings": [
+        "anchors",
+        "applets",
+        "body",
+        "cookie",
+        "defaultView",
+        "designMode",
+        "documentElement",
+        "documentURI",
+        "doctype",
+        "domain",
+        "embeds",
+        "forms",
+        "frames",
+        "head",
+        "hidden",
+        "images",
+        "implementation",
+        "lastModified",
+        "links",
+        "readyState",
+        "referrer",
+        "styleSheets",
+        "title",
+        "URL",
+        "visibilityState"
+      ]
+    },
+    {
+      "name": "js.dom.document.methods",
+      "defaultAppend": "",
+      "strings": [
+        "clear",
+        "close",
+        "createDocumentFragment",
+        "createRange",
+        {
+          "string": "createAttribute",
+          "append": "(${1:attributeName})"
+        },
+        {
+          "string": "createComment",
+          "append": "(${1:commentText})"
+        },
+        {
+          "string": "createElement",
+          "append": "(${1:tagName})"
+        },
+        {
+          "string": "createElementNS",
+          "append": "(${1:namespaceURI}, ${2:qualifiedName})"
+        },
+        {
+          "string": "createEvent",
+          "append": "(${1:eventType})"
+        },
+        {
+          "string": "createTextNode",
+          "append": "(${1:text})"
+        },
+        {
+          "string": "elementFromPoint",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "elementsFromPoint",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "execCommand",
+          "append": "(${1:commandName})"
+        },
+        {
+          "string": "getElementById",
+          "append": "(${1:id})"
+        },
+        {
+          "string": "getElementsByName",
+          "append": "(${1:name})"
+        },
+        {
+          "string": "getElementsByClassName",
+          "append": "(${1:className})"
+        },
+        {
+          "string": "getElementsByTagName",
+          "append": "(${1:tagName})"
+        },
+        {
+          "string": "querySelector",
+          "append": "('${1:selector}')"
+        },
+        {
+          "string": "querySelectorAll",
+          "append": "('${1:selector}')"
+        },
+        {
+          "string": "importNode",
+          "append": "(${1:node}, ${2:deep})"
+        },
+        {
+          "string": "open",
+          "append": "()"
+        },
+        {
+          "string": "write",
+          "append": "(${1:string})"
+        },
+        {
+          "string": "writeln",
+          "append": "(${1:string})"
+        },
+        {
+          "string": "adoptNode",
+          "append": "(${1:node})"
+        },
+        {
+          "string": "createAttributeNS",
+          "append": "(${1:namespaceURI}, ${2:qualifiedName})"
+        },
+        {
+          "string": "createCDATASection",
+          "append": "(${1:data})"
+        },
+        {
+          "string": "createEntityReference",
+          "append": "(${1:entityName})"
+        },
+        {
+          "string": "createProcessingInstruction",
+          "append": "(${1:target}, ${2:data})"
+        },
+        {
+          "string": "createTreeWalker",
+          "append": "(${1:root}, ${2:whatToShow})"
+        },
+        {
+          "string": "caretRangeFromPoint",
+          "append": "(${1:x}, ${2:y})"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.history.properties",
+      "strings": [
+        "length",
+        "state",
+        "scrollRestoration"
+      ]
+    },
+    {
+      "name": "js.dom.history.methods",
+      "defaultAppend": "",
+      "strings": [
+        "back",
+        "forward",
+        {
+          "string": "go",
+          "append": "(${1:delta})"
+        },
+        {
+          "string": "pushState",
+          "append": "(${1:state}, '${2:title}', '${3:url}')"
+        },
+        {
+          "string": "replaceState",
+          "append": "(${1:state}, '${2:title}', '${3:url}')"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.location.properties",
+      "strings": [
+        "hash",
+        "host",
+        "hostname",
+        "href",
+        "origin",
+        "pathname",
+        "port",
+        "protocol",
+        "search"
+      ]
+    },
+    {
+      "name": "js.dom.location.methods",
+      "strings": [
+        {
+          "string": "assign",
+          "append": "(${1:URL})"
+        },
+        {
+          "string": "reload",
+          "append": "()"
+        },
+        {
+          "string": "replace",
+          "append": "(${1:URL})"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.screen.properties",
+      "strings": [
+        "availHeight",
+        "availWidth",
+        "availLeft",
+        "availTop",
+        "colorDepth",
+        "height",
+        "width",
+        "pixelDepth",
+        "orientation"
+      ]
+    },
+    {
+      "name": "js.dom.window.properties",
+      "strings": [
+        "closed",
+        "defaultStatus",
+        "document",
+        "frameElement",
+        "frames",
+        "history",
+        "innerHeight",
+        "innerWidth",
+        "length",
+        "location",
+        "localStorage",
+        "sessionStorage",
+        "name",
+        "navigator",
+        "opener",
+        "outerHeight",
+        "outerWidth",
+        "pageXOffset",
+        "pageYOffset",
+        "parent",
+        "performance",
+        "screen",
+        "screenLeft",
+        "screenTop",
+        "screenX",
+        "screenY",
+        "scrollX",
+        "scrollY",
+        "status",
+        "visualViewport"
+      ]
+    },
+    {
+      "name": "js.dom.window.methods.global",
+      "strings": [
+        {
+          "string": "alert",
+          "append": "(${1:message})"
+        },
+        {
+          "string": "clearInterval",
+          "append": "(${1:intervalID})"
+        },
+        {
+          "string": "clearTimeout",
+          "append": "(${1:timeoutID})"
+        },
+        {
+          "string": "confirm",
+          "append": "(${1:message})"
+        },
+        {
+          "string": "prompt",
+          "append": "(${1:message}, ${2:defaultReply})"
+        },
+        {
+          "string": "setInterval",
+          "append": "(${1:fn}, ${2:milliseconds})"
+        },
+        {
+          "string": "setTimeout",
+          "append": "(${1:fn}, ${2:milliseconds})"
+        },
+        {
+          "string": "requestAnimationFrame",
+          "append": "(${1:callback})"
+        },
+        {
+          "string": "cancelAnimationFrame",
+          "append": "(${1:id})"
+        },
+        {
+          "string": "fetch",
+          "append": "('${1:url}')"
+        },
+        {
+          "string": "structuredClone",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "queueMicrotask",
+          "append": "(${1:fn})"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.window.methods",
+      "defaultAppend": "",
+      "strings": [
+        "close",
+        "getSelection",
+        "print",
+        {
+          "string": "moveBy",
+          "append": "(${1:deltaX}, ${2:deltaY})"
+        },
+        {
+          "string": "moveTo",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "open",
+          "append": "(${1:URL}, ${2:windowName})"
+        },
+        {
+          "string": "resizeBy",
+          "append": "(${1:deltaX}, ${2:deltaY})"
+        },
+        {
+          "string": "resizeTo",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "scroll",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "scrollBy",
+          "append": "(${1:deltaX}, ${2:deltaY})"
+        },
+        {
+          "string": "scrollTo",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "postMessage",
+          "append": "(${1:message}, '${2:targetOrigin}')"
+        },
+        {
+          "string": "matchMedia",
+          "append": "('${1:query}')"
+        },
+        {
+          "string": "getComputedStyle",
+          "append": "(${1:element})"
+        },
+        {
+          "string": "requestIdleCallback",
+          "append": "(${1:callback})"
+        },
+        {
+          "string": "cancelIdleCallback",
+          "append": "(${1:id})"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.localStorage.methods",
+      "strings": [
+        {
+          "string": "key",
+          "append": "(${1:index})"
+        },
+        {
+          "string": "getItem",
+          "append": "(${1:key})"
+        },
+        {
+          "string": "setItem",
+          "append": "(${1:key}, ${2:value})"
+        },
+        {
+          "string": "removeItem",
+          "append": "(${1:key})"
+        },
+        {
+          "string": "clear",
+          "append": "()"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.classList.methods",
+      "strings": [
+        {
+          "string": "add",
+          "append": "('${1:class}')"
+        },
+        {
+          "string": "remove",
+          "append": "('${1:class}')"
+        },
+        {
+          "string": "toggle",
+          "append": "('${1:class}'${2:, ${3:force}})"
+        },
+        {
+          "string": "contains",
+          "append": "('${1:class}')"
+        },
+        {
+          "string": "replace",
+          "append": "('${1:oldClass}', '${2:newClass}')"
+        },
+        {
+          "string": "item",
+          "append": "(${1:index})"
+        },
+        {
+          "string": "forEach",
+          "append": "((${1:cls}) => {\n\t$0\n})"
+        },
+        "value"
+      ]
+    },
+    {
+      "name": "js.dom.performance.methods",
+      "strings": [
+        {
+          "string": "now",
+          "append": "()"
+        },
+        {
+          "string": "mark",
+          "append": "('${1:name}')"
+        },
+        {
+          "string": "measure",
+          "append": "('${1:name}'${2:, '${3:startMark}', '${4:endMark}'})"
+        },
+        {
+          "string": "getEntriesByName",
+          "append": "('${1:name}')"
+        },
+        {
+          "string": "getEntriesByType",
+          "append": "('${1:type}')"
+        },
+        {
+          "string": "getEntries",
+          "append": "()"
+        },
+        {
+          "string": "clearMarks",
+          "append": "(${1:'${2:name}'})"
+        },
+        {
+          "string": "clearMeasures",
+          "append": "(${1:'${2:name}'})"
+        }
+      ]
+    },
+    {
+      "name": "js.dom.navigator.properties",
+      "strings": [
+        "userAgent",
+        "language",
+        "languages",
+        "onLine",
+        "clipboard",
+        "permissions",
+        "serviceWorker",
+        "geolocation",
+        "hardwareConcurrency",
+        "maxTouchPoints",
+        "cookieEnabled",
+        "platform"
+      ]
+    },
+    {
+      "name": "js.dom.navigator.methods",
+      "strings": [
+        {
+          "string": "share",
+          "append": "({ title: '${1:title}', text: '${2:text}', url: '${3:url}' })"
+        },
+        {
+          "string": "vibrate",
+          "append": "(${1:pattern})"
+        },
+        {
+          "string": "sendBeacon",
+          "append": "('${1:url}', ${2:data})"
+        },
+        {
+          "string": "getBattery",
+          "append": "()"
+        }
+      ]
+    },
+    {
+      "name": "q5.globals",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "Canvas",
+          "append": "(${1:width}${2:, ${3:height}})"
+        },
+        {
+          "string": "createCanvas",
+          "append": "(${1:width}${2:, ${3:height}})"
+        },
+        {
+          "string": "loadAll",
+          "append": "()"
+        },
+        {
+          "string": "disablePreload",
+          "append": "()"
+        },
+        {
+          "string": "frameRate",
+          "append": "(${1:fps})"
+        },
+        {
+          "string": "noLoop",
+          "append": "()"
+        },
+        {
+          "string": "loop",
+          "append": "()"
+        },
+        {
+          "string": "redraw",
+          "append": "()"
+        },
+        {
+          "string": "pixelDensity",
+          "append": "(${1:density})"
+        },
+        {
+          "string": "displayDensity",
+          "append": "()"
+        },
+        {
+          "string": "resizeCanvas",
+          "append": "(${1:width}, ${2:height})"
+        },
+        {
+          "string": "background",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "fill",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "noFill",
+          "append": "()"
+        },
+        {
+          "string": "stroke",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "noStroke",
+          "append": "()"
+        },
+        {
+          "string": "strokeWeight",
+          "append": "(${1:weight})"
+        },
+        {
+          "string": "opacity",
+          "append": "(${1:alpha})"
+        },
+        {
+          "string": "blendMode",
+          "append": "(${1:mode})"
+        },
+        {
+          "string": "circle",
+          "append": "(${1:x}, ${2:y}, ${3:diameter})"
+        },
+        {
+          "string": "ellipse",
+          "append": "(${1:x}, ${2:y}, ${3:w}, ${4:h})"
+        },
+        {
+          "string": "rect",
+          "append": "(${1:x}, ${2:y}, ${3:w}, ${4:h})"
+        },
+        {
+          "string": "square",
+          "append": "(${1:x}, ${2:y}, ${3:size})"
+        },
+        {
+          "string": "line",
+          "append": "(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2})"
+        },
+        {
+          "string": "point",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "arc",
+          "append": "(${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:start}, ${6:stop})"
+        },
+        {
+          "string": "triangle",
+          "append": "(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:x3}, ${6:y3})"
+        },
+        {
+          "string": "quad",
+          "append": "(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:x3}, ${6:y3}, ${7:x4}, ${8:y4})"
+        },
+        {
+          "string": "capsule",
+          "append": "(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:r})"
+        },
+        {
+          "string": "beginShape",
+          "append": "()"
+        },
+        {
+          "string": "endShape",
+          "append": "(${1:CLOSE})"
+        },
+        {
+          "string": "vertex",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "curveVertex",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "bezierVertex",
+          "append": "(${1:cp1x}, ${2:cp1y}, ${3:cp2x}, ${4:cp2y}, ${5:x}, ${6:y})"
+        },
+        {
+          "string": "contour",
+          "append": "()"
+        },
+        {
+          "string": "rectMode",
+          "append": "(${1:mode})"
+        },
+        {
+          "string": "ellipseMode",
+          "append": "(${1:mode})"
+        },
+        {
+          "string": "push",
+          "append": "()"
+        },
+        {
+          "string": "pop",
+          "append": "()"
+        },
+        {
+          "string": "translate",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "rotate",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "scale",
+          "append": "(${1:x}${2:, ${3:y}})"
+        },
+        {
+          "string": "shearX",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "shearY",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "applyMatrix",
+          "append": "(${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e}, ${6:f})"
+        },
+        {
+          "string": "resetMatrix",
+          "append": "()"
+        },
+        {
+          "string": "color",
+          "append": "(${1:r}, ${2:g}, ${3:b}${4:, ${5:a}})"
+        },
+        {
+          "string": "colorMode",
+          "append": "(${1:mode})"
+        },
+        {
+          "string": "lerpColor",
+          "append": "(${1:c1}, ${2:c2}, ${3:amt})"
+        },
+        {
+          "string": "red",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "green",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "blue",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "alpha",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "hue",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "saturation",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "brightness",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "lightness",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "random",
+          "append": "(${1:min}${2:, ${3:max}})"
+        },
+        {
+          "string": "randomGaussian",
+          "append": "(${1:mean}, ${2:stdDev})"
+        },
+        {
+          "string": "noise",
+          "append": "(${1:x}${2:, ${3:y}${4:, ${5:z}}})"
+        },
+        {
+          "string": "noiseSeed",
+          "append": "(${1:seed})"
+        },
+        {
+          "string": "noiseDetail",
+          "append": "(${1:octaves}, ${2:falloff})"
+        },
+        {
+          "string": "randomSeed",
+          "append": "(${1:seed})"
+        },
+        {
+          "string": "abs",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "ceil",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "floor",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "round",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "min",
+          "append": "(${1:a}, ${2:b})"
+        },
+        {
+          "string": "max",
+          "append": "(${1:a}, ${2:b})"
+        },
+        {
+          "string": "pow",
+          "append": "(${1:base}, ${2:exp})"
+        },
+        {
+          "string": "sqrt",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "sq",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "exp",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "log",
+          "append": "(${1:n})"
+        },
+        {
+          "string": "dist",
+          "append": "(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2})"
+        },
+        {
+          "string": "lerp",
+          "append": "(${1:start}, ${2:stop}, ${3:amt})"
+        },
+        {
+          "string": "norm",
+          "append": "(${1:value}, ${2:start}, ${3:stop})"
+        },
+        {
+          "string": "map",
+          "append": "(${1:value}, ${2:inMin}, ${3:inMax}, ${4:outMin}, ${5:outMax})"
+        },
+        {
+          "string": "constrain",
+          "append": "(${1:n}, ${2:low}, ${3:high})"
+        },
+        {
+          "string": "radians",
+          "append": "(${1:degrees})"
+        },
+        {
+          "string": "degrees",
+          "append": "(${1:radians})"
+        },
+        {
+          "string": "sin",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "cos",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "tan",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "asin",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "acos",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "atan",
+          "append": "(${1:value})"
+        },
+        {
+          "string": "atan2",
+          "append": "(${1:y}, ${2:x})"
+        },
+        {
+          "string": "mag",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "angleMode",
+          "append": "(${1:mode})"
+        },
+        {
+          "string": "loadImage",
+          "append": "('${1:url}')"
+        },
+        {
+          "string": "loadStrings",
+          "append": "('${1:url}')"
+        },
+        {
+          "string": "loadJSON",
+          "append": "('${1:url}')"
+        },
+        {
+          "string": "loadFont",
+          "append": "('${1:url}')"
+        },
+        {
+          "string": "load",
+          "append": "('${1:url}')"
+        },
+        {
+          "string": "image",
+          "append": "(${1:img}, ${2:x}, ${3:y}${4:, ${5:w}, ${6:h}})"
+        },
+        {
+          "string": "imageMode",
+          "append": "(${1:mode})"
+        },
+        {
+          "string": "tint",
+          "append": "(${1:color})"
+        },
+        {
+          "string": "noTint",
+          "append": "()"
+        },
+        {
+          "string": "createImage",
+          "append": "(${1:w}, ${2:h})"
+        },
+        {
+          "string": "createGraphics",
+          "append": "(${1:w}, ${2:h})"
+        },
+        {
+          "string": "smooth",
+          "append": "()"
+        },
+        {
+          "string": "noSmooth",
+          "append": "()"
+        },
+        {
+          "string": "filter",
+          "append": "(${1:type})"
+        },
+        {
+          "string": "defaultImageScale",
+          "append": "(${1:scale})"
+        },
+        {
+          "string": "text",
+          "append": "(${1:str}, ${2:x}, ${3:y})"
+        },
+        {
+          "string": "textSize",
+          "append": "(${1:size})"
+        },
+        {
+          "string": "textAlign",
+          "append": "(${1:horiz}${2:, ${3:vert}})"
+        },
+        {
+          "string": "textFont",
+          "append": "('${1:fontName}')"
+        },
+        {
+          "string": "textStyle",
+          "append": "(${1:style})"
+        },
+        {
+          "string": "textWidth",
+          "append": "('${1:str}')"
+        },
+        {
+          "string": "textLeading",
+          "append": "(${1:leading})"
+        },
+        {
+          "string": "textAscent",
+          "append": "('${1:str}')"
+        },
+        {
+          "string": "textDescent",
+          "append": "('${1:str}')"
+        },
+        {
+          "string": "textImage",
+          "append": "(${1:imgOrStr}, ${2:x}, ${3:y})"
+        },
+        {
+          "string": "textToPoints",
+          "append": "('${1:str}'${2:, ${3:x}, ${4:y}})"
+        },
+        {
+          "string": "createTextImage",
+          "append": "('${1:str}')"
+        },
+        {
+          "string": "nf",
+          "append": "(${1:num}${2:, ${3:left}, ${4:right}})"
+        },
+        {
+          "string": "nfc",
+          "append": "(${1:num}${2:, ${3:right}})"
+        },
+        {
+          "string": "nfp",
+          "append": "(${1:num}${2:, ${3:left}, ${4:right}})"
+        },
+        {
+          "string": "nfs",
+          "append": "(${1:num}${2:, ${3:left}, ${4:right}})"
+        },
+        {
+          "string": "createVector",
+          "append": "(${1:x}, ${2:y}, ${3:z})"
+        },
+        {
+          "string": "keyIsDown",
+          "append": "(${1:keyCode})"
+        },
+        {
+          "string": "cursor",
+          "append": "(${1:type})"
+        },
+        {
+          "string": "noCursor",
+          "append": "()"
+        },
+        {
+          "string": "save",
+          "append": "('${1:filename}')"
+        },
+        {
+          "string": "saveCanvas",
+          "append": "(${1:canvas}, '${2:filename}')"
+        },
+        {
+          "string": "saveJSON",
+          "append": "(${1:data}, '${2:filename}')"
+        },
+        {
+          "string": "saveStrings",
+          "append": "(${1:strings}, '${2:filename}')"
+        }
+      ]
+    },
+    {
+      "name": "q5.variables",
+      "defaultAppend": "",
+      "strings": [
+        "width",
+        "height",
+        "windowWidth",
+        "windowHeight",
+        "frameCount",
+        "deltaTime",
+        "displayWidth",
+        "displayHeight",
+        "mouseX",
+        "mouseY",
+        "pmouseX",
+        "pmouseY",
+        "mouseIsPressed",
+        "mouseButton",
+        "winMouseX",
+        "winMouseY",
+        "pwinMouseX",
+        "pwinMouseY",
+        "keyIsPressed",
+        "key",
+        "keyCode",
+        "touches",
+        "PI",
+        "TWO_PI",
+        "HALF_PI",
+        "TAU",
+        "E",
+        "DEGREES",
+        "RADIANS",
+        "RGB",
+        "HSB",
+        "HSL",
+        "CENTER",
+        "CORNER",
+        "CORNERS",
+        "RADIUS",
+        "LEFT",
+        "RIGHT",
+        "TOP",
+        "BOTTOM",
+        "MIDDLE",
+        "BASELINE",
+        "CLOSE",
+        "OPEN",
+        "BOLD",
+        "ITALIC",
+        "NORMAL",
+        "BOLDITALIC",
+        "ROUND",
+        "SQUARE",
+        "PROJECT",
+        "MITER",
+        "BEVEL",
+        "THRESHOLD",
+        "GRAY",
+        "OPAQUE",
+        "INVERT",
+        "POSTERIZE",
+        "DILATE",
+        "ERODE",
+        "BLUR",
+        "ADD",
+        "SUBTRACT",
+        "MULTIPLY",
+        "SCREEN",
+        "OVERLAY",
+        "HARD_LIGHT",
+        "SOFT_LIGHT",
+        "DODGE",
+        "BURN",
+        "DARKEST",
+        "LIGHTEST",
+        "DIFFERENCE",
+        "EXCLUSION",
+        "CHORD",
+        "PIE",
+        "ARROW",
+        "CROSS",
+        "HAND",
+        "MOVE",
+        "TEXT",
+        "WAIT"
+      ]
+    },
+    {
+      "name": "q5.lifecycle",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "setup",
+          "replace": "function setup() {\n\tcreateCanvas(windowWidth, windowHeight);\n\t$0\n}"
+        },
+        {
+          "string": "draw",
+          "replace": "function draw() {\n\t$0\n}"
+        },
+        {
+          "string": "update",
+          "replace": "function update(deltaTime) {\n\t$0\n}"
+        },
+        {
+          "string": "windowResized",
+          "replace": "function windowResized() {\n\tresizeCanvas(windowWidth, windowHeight);\n}"
+        },
+        "preload",
+        "mousePressed",
+        "mouseReleased",
+        "mouseMoved",
+        "mouseDragged",
+        "mouseClicked",
+        "doubleClicked",
+        "mouseWheel",
+        "keyPressed",
+        "keyReleased",
+        "keyTyped",
+        "touchStarted",
+        "touchMoved",
+        "touchEnded",
+        "deviceMoved",
+        "deviceShaken",
+        "deviceTurned"
+      ]
+    },
+    {
+      "name": "q5.vector.methods",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "add(v)",
+          "replace": "add(${1:v})"
+        },
+        {
+          "string": "sub",
+          "append": "(${1:v})"
+        },
+        {
+          "string": "mult",
+          "append": "(${1:scalar})"
+        },
+        {
+          "string": "div",
+          "append": "(${1:scalar})"
+        },
+        {
+          "string": "mag",
+          "append": "()"
+        },
+        {
+          "string": "magSq",
+          "append": "()"
+        },
+        {
+          "string": "normalize",
+          "append": "()"
+        },
+        {
+          "string": "limit",
+          "append": "(${1:max})"
+        },
+        {
+          "string": "setMag",
+          "append": "(${1:len})"
+        },
+        {
+          "string": "heading",
+          "append": "()"
+        },
+        {
+          "string": "rotate",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "dot",
+          "append": "(${1:v})"
+        },
+        {
+          "string": "cross",
+          "append": "(${1:v})"
+        },
+        {
+          "string": "lerp",
+          "append": "(${1:v}, ${2:amt})"
+        },
+        {
+          "string": "slerp",
+          "append": "(${1:v}, ${2:amt})"
+        },
+        {
+          "string": "dist",
+          "append": "(${1:v})"
+        },
+        {
+          "string": "copy",
+          "append": "()"
+        },
+        {
+          "string": "set(x, y)",
+          "replace": "set(${1:x}, ${2:y})"
+        },
+        {
+          "string": "equals",
+          "append": "(${1:v})"
+        },
+        {
+          "string": "array",
+          "append": "()"
+        },
+        {
+          "string": "angleBetween",
+          "append": "(${1:v})"
+        }
+      ]
+    },
+    {
+      "name": "q5.Vector.static",
+      "strings": [
+        {
+          "string": "fromAngle",
+          "append": "(${1:angle})"
+        },
+        {
+          "string": "fromAngles",
+          "append": "(${1:theta}, ${2:phi})"
+        },
+        {
+          "string": "random2D",
+          "append": "()"
+        },
+        {
+          "string": "random3D",
+          "append": "()"
+        },
+        {
+          "string": "angleBetween",
+          "append": "(${1:v1}, ${2:v2})"
+        },
+        {
+          "string": "add",
+          "append": "(${1:v1}, ${2:v2})"
+        },
+        {
+          "string": "sub",
+          "append": "(${1:v1}, ${2:v2})"
+        },
+        {
+          "string": "mult",
+          "append": "(${1:v}, ${2:scalar})"
+        },
+        {
+          "string": "div",
+          "append": "(${1:v}, ${2:scalar})"
+        },
+        {
+          "string": "lerp",
+          "append": "(${1:v1}, ${2:v2}, ${3:amt})"
+        },
+        {
+          "string": "dist",
+          "append": "(${1:v1}, ${2:v2})"
+        }
+      ]
+    },
+    {
+      "name": "q5play.globals",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "Sprite",
+          "append": "(${1:x}, ${2:y}, ${3:width}, ${4:height})"
+        },
+        {
+          "string": "Group",
+          "append": "()"
+        },
+        "allSprites",
+        "world",
+        "camera",
+        "kb",
+        "mouse"
+      ]
+    },
+    {
+      "name": "q5play.sprite.properties",
+      "defaultAppend": "",
+      "strings": [
+        "x",
+        "y",
+        "pos",
+        "vel",
+        "speed",
+        "direction",
+        "rotation",
+        "rotationSpeed",
+        "rotationDrag",
+        "rotationLock",
+        "w",
+        "h",
+        "d",
+        "width",
+        "height",
+        "diameter",
+        "hw",
+        "hh",
+        "r",
+        "scale",
+        "xScale",
+        "yScale",
+        "mass",
+        "density",
+        "friction",
+        "drag",
+        "restitution",
+        "bounciness",
+        "gravityScale",
+        "linearDamping",
+        "angularDamping",
+        "sleeping",
+        "collider",
+        "color",
+        "fill",
+        "stroke",
+        "strokeWeight",
+        "opacity",
+        "visible",
+        "layer",
+        "depth",
+        "shapeColor",
+        "textColor",
+        "textSize",
+        "image",
+        "img",
+        "ani",
+        "anis",
+        "animation",
+        "animations",
+        "debug",
+        "life",
+        "removed",
+        "mouseIsOver",
+        "mouseIsPressed",
+        "touching",
+        "mouse",
+        "offset",
+        "text",
+        "length",
+        "centroid"
+      ]
+    },
+    {
+      "name": "q5play.sprite.methods",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "move",
+          "append": "(${1:distance}${2:, '${3:direction}'}${4:, ${5:speed}})"
+        },
+        {
+          "string": "moveTo",
+          "append": "(${1:x}, ${2:y}${3:, ${4:speed}})"
+        },
+        {
+          "string": "moveTowards",
+          "append": "(${1:x}, ${2:y}, ${3:trackingSpeed})"
+        },
+        {
+          "string": "moveAway",
+          "append": "(${1:x}, ${2:y}, ${3:trackingSpeed})"
+        },
+        {
+          "string": "attractTo",
+          "append": "(${1:x}, ${2:y}${3:, ${4:force}})"
+        },
+        {
+          "string": "applyForce",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "applyForceScaled",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "applyTorque",
+          "append": "(${1:torque})"
+        },
+        {
+          "string": "angleTo",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "distanceTo",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "collides(other)",
+          "replace": "collides(${1:other})"
+        },
+        {
+          "string": "colliding(other)",
+          "replace": "colliding(${1:other})"
+        },
+        {
+          "string": "collided(other)",
+          "replace": "collided(${1:other})"
+        },
+        {
+          "string": "overlaps(other)",
+          "replace": "overlaps(${1:other})"
+        },
+        {
+          "string": "overlapping(other)",
+          "replace": "overlapping(${1:other})"
+        },
+        {
+          "string": "overlapped(other)",
+          "replace": "overlapped(${1:other})"
+        },
+        {
+          "string": "bounce(other)",
+          "replace": "bounce(${1:other})"
+        },
+        {
+          "string": "bounces(other)",
+          "replace": "bounces(${1:other})"
+        },
+        {
+          "string": "bouncing(other)",
+          "replace": "bouncing(${1:other})"
+        },
+        {
+          "string": "bounced(other)",
+          "replace": "bounced(${1:other})"
+        },
+        {
+          "string": "displace(other)",
+          "replace": "displace(${1:other})"
+        },
+        {
+          "string": "displaces(other)",
+          "replace": "displaces(${1:other})"
+        },
+        {
+          "string": "displacing(other)",
+          "replace": "displacing(${1:other})"
+        },
+        {
+          "string": "displaced(other)",
+          "replace": "displaced(${1:other})"
+        },
+        {
+          "string": "addAni",
+          "append": "('${1:label}', ${2:animation})"
+        },
+        {
+          "string": "addAnimation",
+          "append": "('${1:label}', ${2:animation})"
+        },
+        {
+          "string": "changeAni",
+          "append": "('${1:label}')"
+        },
+        {
+          "string": "changeAnimation",
+          "append": "('${1:label}')"
+        },
+        {
+          "string": "remove() — sprite",
+          "replace": "remove()"
+        },
+        {
+          "string": "draw() — sprite",
+          "replace": "draw()"
+        },
+        {
+          "string": "cull(paddingLeft, ...)",
+          "replace": "cull(${1:paddingLeft}${2:, ${3:paddingRight}, ${4:paddingTop}, ${5:paddingBottom}})"
+        },
+        {
+          "string": "contains(sprite) — sprite",
+          "replace": "contains(${1:sprite})"
+        }
+      ]
+    },
+    {
+      "name": "q5play.group.methods",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "add(sprite)",
+          "replace": "add(${1:sprite})"
+        },
+        {
+          "string": "remove(sprite)",
+          "replace": "remove(${1:sprite})"
+        },
+        {
+          "string": "removeAll",
+          "append": "()"
+        },
+        {
+          "string": "contains(sprite) — group",
+          "replace": "contains(${1:sprite})"
+        },
+        {
+          "string": "overlaps(target)",
+          "replace": "overlaps(${1:target})"
+        },
+        {
+          "string": "collides(target)",
+          "replace": "collides(${1:target})"
+        },
+        {
+          "string": "bounce(target)",
+          "replace": "bounce(${1:target})"
+        },
+        {
+          "string": "displace(target)",
+          "replace": "displace(${1:target})"
+        },
+        {
+          "string": "draw() — group",
+          "replace": "draw()"
+        },
+        {
+          "string": "update",
+          "append": "()"
+        },
+        {
+          "string": "cull(padding)",
+          "replace": "cull(${1:padding})"
+        }
+      ]
+    },
+    {
+      "name": "q5play.kb.methods",
+      "strings": [
+        {
+          "string": "pressing",
+          "append": "('${1:key}')"
+        },
+        {
+          "string": "pressed",
+          "append": "('${1:key}')"
+        },
+        {
+          "string": "released",
+          "append": "('${1:key}')"
+        },
+        {
+          "string": "held",
+          "append": "('${1:key}')"
+        }
+      ]
+    },
+    {
+      "name": "q5play.mouse.methods",
+      "strings": [
+        {
+          "string": "pressing",
+          "append": "(${1:button})"
+        },
+        {
+          "string": "presses",
+          "append": "(${1:button})"
+        },
+        {
+          "string": "released",
+          "append": "(${1:button})"
+        },
+        {
+          "string": "moved",
+          "append": "()"
+        },
+        {
+          "string": "buttons",
+          "append": "()"
+        },
+        "x",
+        "y",
+        "px",
+        "py",
+        "wheel"
+      ]
+    },
+    {
+      "name": "q5play.world.properties",
+      "defaultAppend": "",
+      "strings": [
+        "gravity",
+        "velocityIterations",
+        "positionIterations",
+        "timeScale"
+      ]
+    },
+    {
+      "name": "q5play.world.methods",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "step",
+          "append": "()"
+        },
+        {
+          "string": "createJoint",
+          "append": "(${1:spriteA}, ${2:spriteB}, ${3:type})"
+        },
+        {
+          "string": "destroyJoint",
+          "append": "(${1:joint})"
+        },
+        {
+          "string": "raycast",
+          "append": "(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2})"
+        }
+      ]
+    },
+    {
+      "name": "q5play.camera.properties",
+      "defaultAppend": "",
+      "strings": [
+        "x",
+        "y",
+        "zoom",
+        "active"
+      ]
+    },
+    {
+      "name": "matter.globals",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "Matter",
+          "append": ""
+        },
+        {
+          "string": "Engine",
+          "append": ""
+        },
+        {
+          "string": "Render",
+          "append": ""
+        },
+        {
+          "string": "Runner",
+          "append": ""
+        },
+        {
+          "string": "Bodies",
+          "append": ""
+        },
+        {
+          "string": "Body",
+          "append": ""
+        },
+        {
+          "string": "Composite",
+          "append": ""
+        },
+        {
+          "string": "Composites",
+          "append": ""
+        },
+        {
+          "string": "Constraint",
+          "append": ""
+        },
+        {
+          "string": "Events",
+          "append": ""
+        },
+        {
+          "string": "Mouse",
+          "append": ""
+        },
+        {
+          "string": "MouseConstraint",
+          "append": ""
+        },
+        {
+          "string": "Query",
+          "append": ""
+        },
+        {
+          "string": "Vector",
+          "append": ""
+        },
+        {
+          "string": "Vertices",
+          "append": ""
+        },
+        {
+          "string": "Bounds",
+          "append": ""
+        },
+        {
+          "string": "Common",
+          "append": ""
+        },
+        {
+          "string": "Plugin",
+          "append": ""
+        },
+        {
+          "string": "Sleeping",
+          "append": ""
+        },
+        {
+          "string": "Svg",
+          "append": ""
+        },
+        {
+          "string": "World",
+          "append": ""
+        },
+        {
+          "string": "Axes",
+          "append": ""
+        },
+        {
+          "string": "Collision",
+          "append": ""
+        },
+        {
+          "string": "Detector",
+          "append": ""
+        },
+        {
+          "string": "Pair",
+          "append": ""
+        },
+        {
+          "string": "Pairs",
+          "append": ""
+        },
+        {
+          "string": "SAT",
+          "append": ""
+        },
+        {
+          "string": "Resolver",
+          "append": ""
+        },
+        {
+          "string": "Grid",
+          "append": ""
+        },
+        {
+          "string": "Contact",
+          "append": ""
+        }
+      ]
+    },
+    {
+      "name": "matter.Engine",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "update",
+          "append": "(${1:engine}${2:, ${3:delta}})"
+        },
+        {
+          "string": "run",
+          "append": "(${1:engine})"
+        },
+        {
+          "string": "merge",
+          "append": "(${1:engineA}, ${2:engineB})"
+        },
+        {
+          "string": "clear",
+          "append": "(${1:engine})"
+        },
+        "world",
+        "gravity",
+        "timing",
+        "enableSleeping",
+        "positionIterations",
+        "velocityIterations",
+        "constraintIterations",
+        "detector",
+        "plugin"
+      ]
+    },
+    {
+      "name": "matter.Runner",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "run",
+          "append": "(${1:runner}, ${2:engine})"
+        },
+        {
+          "string": "tick",
+          "append": "(${1:runner}, ${2:engine}, ${3:time})"
+        },
+        {
+          "string": "stop",
+          "append": "(${1:runner})"
+        },
+        {
+          "string": "start",
+          "append": "(${1:runner}, ${2:engine})"
+        },
+        "enabled",
+        "delta",
+        "deltaMin",
+        "deltaMax",
+        "timeBuffer",
+        "frameRequestId",
+        "fps",
+        "frameDelta"
+      ]
+    },
+    {
+      "name": "matter.Render",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "run",
+          "append": "(${1:render})"
+        },
+        {
+          "string": "stop",
+          "append": "(${1:render})"
+        },
+        {
+          "string": "world",
+          "append": "(${1:render})"
+        },
+        {
+          "string": "lookAt",
+          "append": "(${1:render}, ${2:objects}${3:, ${4:padding}}${5:, ${6:center}})"
+        },
+        {
+          "string": "setSize",
+          "append": "(${1:render}, ${2:width}, ${3:height})"
+        },
+        {
+          "string": "setPixelRatio",
+          "append": "(${1:render}, ${2:pixelRatio})"
+        },
+        {
+          "string": "startViewTransform",
+          "append": "(${1:render})"
+        },
+        {
+          "string": "endViewTransform",
+          "append": "(${1:render})"
+        },
+        "engine",
+        "element",
+        "canvas",
+        "context",
+        "options",
+        "bounds",
+        "mouse",
+        "textures"
+      ]
+    },
+    {
+      "name": "matter.Bodies",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "rectangle",
+          "append": "(${1:x}, ${2:y}, ${3:width}, ${4:height}${5:, ${6:options}})"
+        },
+        {
+          "string": "circle",
+          "append": "(${1:x}, ${2:y}, ${3:radius}${4:, ${5:options}})"
+        },
+        {
+          "string": "polygon",
+          "append": "(${1:x}, ${2:y}, ${3:sides}, ${4:radius}${5:, ${6:options}})"
+        },
+        {
+          "string": "trapezoid",
+          "append": "(${1:x}, ${2:y}, ${3:width}, ${4:height}, ${5:slope}${6:, ${7:options}})"
+        },
+        {
+          "string": "fromVertices",
+          "append": "(${1:x}, ${2:y}, ${3:vertexSets}${4:, ${5:options}}${6:, ${7:flagInternal}}${8:, ${9:removeCollinear}}${10:, ${11:minimumArea}})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Body",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "set",
+          "append": "(${1:body}, ${2:settings}${3:, ${4:value}})"
+        },
+        {
+          "string": "setStatic",
+          "append": "(${1:body}, ${2:isStatic})"
+        },
+        {
+          "string": "setMass",
+          "append": "(${1:body}, ${2:mass})"
+        },
+        {
+          "string": "setDensity",
+          "append": "(${1:body}, ${2:density})"
+        },
+        {
+          "string": "setInertia",
+          "append": "(${1:body}, ${2:inertia})"
+        },
+        {
+          "string": "setVertices",
+          "append": "(${1:body}, ${2:vertices})"
+        },
+        {
+          "string": "setParts",
+          "append": "(${1:body}, ${2:parts}${3:, ${4:autoHull}})"
+        },
+        {
+          "string": "setCentre",
+          "append": "(${1:body}, ${2:centre}${3:, ${4:relative}})"
+        },
+        {
+          "string": "setPosition",
+          "append": "(${1:body}, ${2:position}${3:, ${4:updateVelocity}})"
+        },
+        {
+          "string": "setAngle",
+          "append": "(${1:body}, ${2:angle}${3:, ${4:updateVelocity}})"
+        },
+        {
+          "string": "setVelocity",
+          "append": "(${1:body}, ${2:velocity})"
+        },
+        {
+          "string": "setSpeed",
+          "append": "(${1:body}, ${2:speed})"
+        },
+        {
+          "string": "setAngularVelocity",
+          "append": "(${1:body}, ${2:velocity})"
+        },
+        {
+          "string": "setAngularSpeed",
+          "append": "(${1:body}, ${2:speed})"
+        },
+        {
+          "string": "translate",
+          "append": "(${1:body}, ${2:translation}${3:, ${4:useVelocity}})"
+        },
+        {
+          "string": "rotate",
+          "append": "(${1:body}, ${2:rotation}${3:, ${4:point}${5:, ${6:updateVelocity}}})"
+        },
+        {
+          "string": "scale",
+          "append": "(${1:body}, ${2:scaleX}, ${3:scaleY}${4:, ${5:point}})"
+        },
+        {
+          "string": "applyForce",
+          "append": "(${1:body}, ${2:position}, ${3:force})"
+        },
+        {
+          "string": "setCentreOfMass",
+          "append": "(${1:body}, ${2:centre}${3:, ${4:relative}})"
+        },
+        {
+          "string": "setSleeping",
+          "append": "(${1:body}, ${2:isSleeping})"
+        },
+        {
+          "string": "getVelocity",
+          "append": "(${1:body})"
+        },
+        {
+          "string": "getSpeed",
+          "append": "(${1:body})"
+        },
+        {
+          "string": "getAngularVelocity",
+          "append": "(${1:body})"
+        },
+        {
+          "string": "getAngularSpeed",
+          "append": "(${1:body})"
+        },
+        {
+          "string": "nextGroup",
+          "append": "(${1:isNonColliding})"
+        },
+        {
+          "string": "nextCategory",
+          "append": "()"
+        },
+        {
+          "string": "nextGroupId",
+          "append": "()"
+        },
+        "id",
+        "type",
+        "label",
+        "parts",
+        "parent",
+        "position",
+        "angle",
+        "vertices",
+        "velocity",
+        "force",
+        "torque",
+        "mass",
+        "inverseMass",
+        "density",
+        "inertia",
+        "inverseInertia",
+        "friction",
+        "frictionStatic",
+        "frictionAir",
+        "restitution",
+        "slop",
+        "isStatic",
+        "isSensor",
+        "isSleeping",
+        "sleepThreshold",
+        "collisionFilter",
+        "bounds",
+        "chamfer",
+        "render",
+        "plugin",
+        "deltaTime",
+        "speed",
+        "angularSpeed"
+      ]
+    },
+    {
+      "name": "matter.Composite",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "add",
+          "append": "(${1:composite}, ${2:object})"
+        },
+        {
+          "string": "addBody",
+          "append": "(${1:composite}, ${2:body})"
+        },
+        {
+          "string": "addConstraint",
+          "append": "(${1:composite}, ${2:constraint})"
+        },
+        {
+          "string": "addComposite",
+          "append": "(${1:compositeA}, ${2:compositeB})"
+        },
+        {
+          "string": "remove",
+          "append": "(${1:composite}, ${2:object}${3:, ${4:deep}})"
+        },
+        {
+          "string": "removeBody",
+          "append": "(${1:composite}, ${2:body}${3:, ${4:deep}})"
+        },
+        {
+          "string": "removeConstraint",
+          "append": "(${1:composite}, ${2:constraint}${3:, ${4:deep}})"
+        },
+        {
+          "string": "removeComposite",
+          "append": "(${1:compositeA}, ${2:compositeB}${3:, ${4:deep}})"
+        },
+        {
+          "string": "clear",
+          "append": "(${1:composite}, ${2:keepStatic}${3:, ${4:deep}})"
+        },
+        {
+          "string": "allBodies",
+          "append": "(${1:composite})"
+        },
+        {
+          "string": "allConstraints",
+          "append": "(${1:composite})"
+        },
+        {
+          "string": "allComposites",
+          "append": "(${1:composite})"
+        },
+        {
+          "string": "get",
+          "append": "(${1:composite}, ${2:id}, ${3:type})"
+        },
+        {
+          "string": "move",
+          "append": "(${1:compositeA}, ${2:objects}, ${3:compositeB})"
+        },
+        {
+          "string": "rotate",
+          "append": "(${1:composite}, ${2:rotation}, ${3:point}${4:, ${5:recursive}})"
+        },
+        {
+          "string": "translate",
+          "append": "(${1:composite}, ${2:translation}${3:, ${4:recursive}})"
+        },
+        "id",
+        "type",
+        "label",
+        "parent",
+        "bodies",
+        "constraints",
+        "composites",
+        "plugin",
+        "isModified"
+      ]
+    },
+    {
+      "name": "matter.Composites",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "stack",
+          "append": "(${1:x}, ${2:y}, ${3:columns}, ${4:rows}, ${5:columnGap}, ${6:rowGap}, ${7:callback})"
+        },
+        {
+          "string": "pyramid",
+          "append": "(${1:x}, ${2:y}, ${3:columns}, ${4:rows}, ${5:columnGap}, ${6:rowGap}, ${7:callback})"
+        },
+        {
+          "string": "chain",
+          "append": "(${1:composite}, ${2:xOffsetA}, ${3:yOffsetA}, ${4:xOffsetB}, ${5:yOffsetB}, ${6:options})"
+        },
+        {
+          "string": "mesh",
+          "append": "(${1:composite}, ${2:columns}, ${3:rows}, ${4:crossBrace}${5:, ${6:options}})"
+        },
+        {
+          "string": "softBody",
+          "append": "(${1:x}, ${2:y}, ${3:columns}, ${4:rows}, ${5:columnGap}, ${6:rowGap}, ${7:crossBrace}, ${8:particleRadius}, ${9:particleOptions}, ${10:constraintOptions})"
+        },
+        {
+          "string": "newtonsCradle",
+          "append": "(${1:x}, ${2:y}, ${3:number}, ${4:size}, ${5:bodySize})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Constraint",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "preSolveAll",
+          "append": "(${1:bodies})"
+        },
+        {
+          "string": "solveAll",
+          "append": "(${1:constraints}, ${2:delta})"
+        },
+        {
+          "string": "solve",
+          "append": "(${1:constraint}, ${2:timeScale})"
+        },
+        {
+          "string": "postSolveAll",
+          "append": "(${1:bodies})"
+        },
+        {
+          "string": "pointA",
+          "append": ""
+        },
+        {
+          "string": "pointB",
+          "append": ""
+        },
+        "id",
+        "label",
+        "bodyA",
+        "bodyB",
+        "length",
+        "stiffness",
+        "damping",
+        "angularStiffness",
+        "angleA",
+        "angleB",
+        "render"
+      ]
+    },
+    {
+      "name": "matter.Events",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "on",
+          "append": "(${1:object}, '${2:eventName}', ${3:callback})"
+        },
+        {
+          "string": "off",
+          "append": "(${1:object}, '${2:eventName}', ${3:callback})"
+        },
+        {
+          "string": "trigger",
+          "append": "(${1:object}, '${2:eventName}', ${3:event})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Query",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "collides",
+          "append": "(${1:body}, ${2:bodies})"
+        },
+        {
+          "string": "region",
+          "append": "(${1:bodies}, ${2:bounds}${3:, ${4:outside}})"
+        },
+        {
+          "string": "point",
+          "append": "(${1:bodies}, ${2:point})"
+        },
+        {
+          "string": "ray",
+          "append": "(${1:bodies}, ${2:startPoint}, ${3:endPoint}${4:, ${5:rayWidth}})"
+        },
+        {
+          "string": "mouse",
+          "append": "(${1:bodies}, ${2:point})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Vector",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:x}, ${2:y})"
+        },
+        {
+          "string": "clone",
+          "append": "(${1:vector})"
+        },
+        {
+          "string": "add",
+          "append": "(${1:vectorA}, ${2:vectorB}${3:, ${4:output}})"
+        },
+        {
+          "string": "sub",
+          "append": "(${1:vectorA}, ${2:vectorB}${3:, ${4:output}})"
+        },
+        {
+          "string": "mult",
+          "append": "(${1:vector}, ${2:scalar})"
+        },
+        {
+          "string": "div",
+          "append": "(${1:vector}, ${2:scalar})"
+        },
+        {
+          "string": "magnitude",
+          "append": "(${1:vector})"
+        },
+        {
+          "string": "magnitudeSquared",
+          "append": "(${1:vector})"
+        },
+        {
+          "string": "normalise",
+          "append": "(${1:vector})"
+        },
+        {
+          "string": "neg",
+          "append": "(${1:vector})"
+        },
+        {
+          "string": "perp",
+          "append": "(${1:vector}${2:, ${3:negate}})"
+        },
+        {
+          "string": "rotate",
+          "append": "(${1:vector}, ${2:angle}${3:, ${4:output}})"
+        },
+        {
+          "string": "rotateAbout",
+          "append": "(${1:vector}, ${2:angle}, ${3:point}${4:, ${5:output}})"
+        },
+        {
+          "string": "angle",
+          "append": "(${1:vectorA}, ${2:vectorB})"
+        },
+        {
+          "string": "dot",
+          "append": "(${1:vectorA}, ${2:vectorB})"
+        },
+        {
+          "string": "cross",
+          "append": "(${1:vectorA}, ${2:vectorB})"
+        },
+        {
+          "string": "cross3",
+          "append": "(${1:vectorA}, ${2:vectorB}, ${3:vectorC})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Mouse",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:element})"
+        },
+        {
+          "string": "setElement",
+          "append": "(${1:mouse}, ${2:element})"
+        },
+        {
+          "string": "setOffset",
+          "append": "(${1:mouse}, ${2:offset})"
+        },
+        {
+          "string": "setScale",
+          "append": "(${1:mouse}, ${2:scale})"
+        },
+        "element",
+        "absolute",
+        "position",
+        "mousedown",
+        "mouseup",
+        "mousemove",
+        "wheel",
+        "sourceEvents",
+        "button"
+      ]
+    },
+    {
+      "name": "matter.MouseConstraint",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:engine}, ${2:options})"
+        },
+        "mouse",
+        "body",
+        "collisionFilter",
+        "constraint",
+        "engine",
+        "element",
+        "render"
+      ]
+    },
+    {
+      "name": "matter.Bounds",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:vertices})"
+        },
+        {
+          "string": "update",
+          "append": "(${1:bounds}, ${2:vertices}${3:, ${4:velocity}})"
+        },
+        {
+          "string": "contains",
+          "append": "(${1:bounds}, ${2:point})"
+        },
+        {
+          "string": "overlaps",
+          "append": "(${1:boundsA}, ${2:boundsB})"
+        },
+        {
+          "string": "translate",
+          "append": "(${1:bounds}, ${2:vector})"
+        },
+        {
+          "string": "shift",
+          "append": "(${1:bounds}, ${2:position})"
+        },
+        "min",
+        "max"
+      ]
+    },
+    {
+      "name": "matter.Vertices",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:points}, ${2:body})"
+        },
+        {
+          "string": "fromPath",
+          "append": "(${1:path})"
+        },
+        {
+          "string": "centre",
+          "append": "(${1:vertices}${2:, ${3:mass}})"
+        },
+        {
+          "string": "mean",
+          "append": "(${1:vertices})"
+        },
+        {
+          "string": "area",
+          "append": "(${1:vertices}${2:, ${3:signed}})"
+        },
+        {
+          "string": "inertia",
+          "append": "(${1:vertices}, ${2:mass})"
+        },
+        {
+          "string": "translate",
+          "append": "(${1:vertices}, ${2:vector}${3:, ${4:scalar}})"
+        },
+        {
+          "string": "rotate",
+          "append": "(${1:vertices}, ${2:angle}, ${3:point})"
+        },
+        {
+          "string": "scale",
+          "append": "(${1:vertices}, ${2:scaleX}, ${3:scaleY}${4:, ${5:point}})"
+        },
+        {
+          "string": "chamfer",
+          "append": "(${1:vertices}${2:, ${3:radius}${4:, ${5:quality}${6:, ${7:qualityMin}${8:, ${9:qualityMax}}}}})"
+        },
+        {
+          "string": "clockwiseSort",
+          "append": "(${1:vertices})"
+        },
+        {
+          "string": "isConvex",
+          "append": "(${1:vertices})"
+        },
+        {
+          "string": "hull",
+          "append": "(${1:vertices})"
+        },
+        {
+          "string": "contains",
+          "append": "(${1:vertices}, ${2:point})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Sleeping",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "set",
+          "append": "(${1:body}, ${2:isSleeping})"
+        },
+        {
+          "string": "update",
+          "append": "(${1:bodies}, ${2:delta})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Svg",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "pathToVertices",
+          "append": "(${1:path}${2:, ${3:sampleLength}})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Common",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "extend",
+          "append": "(${1:obj}, ${2:deep}${3:, ${4:source}})"
+        },
+        {
+          "string": "clone",
+          "append": "(${1:obj}${2:, ${3:deep}})"
+        },
+        {
+          "string": "keys",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "values",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "choose",
+          "append": "(${1:choices})"
+        },
+        {
+          "string": "shuffle",
+          "append": "(${1:array})"
+        },
+        {
+          "string": "now",
+          "append": "()"
+        },
+        {
+          "string": "random",
+          "append": "(${1:min}${2:, ${3:max}})"
+        },
+        {
+          "string": "nextId",
+          "append": "()"
+        },
+        {
+          "string": "isElement",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "isArray",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "isFunction",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "isPlainObject",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "isString",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "clamp",
+          "append": "(${1:value}, ${2:min}, ${3:max})"
+        },
+        {
+          "string": "sign",
+          "append": "(${1:value})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Plugin",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "register",
+          "append": "(${1:plugin})"
+        },
+        {
+          "string": "resolve",
+          "append": "(${1:plugin})"
+        },
+        {
+          "string": "use",
+          "append": "(${1:module}${2:, ${3:plugin}})"
+        },
+        {
+          "string": "versionParse",
+          "append": "(${1:version})"
+        },
+        {
+          "string": "versionSatisfies",
+          "append": "(${1:version}, ${2:range})"
+        },
+        {
+          "string": "isPlugin",
+          "append": "(${1:obj})"
+        },
+        {
+          "string": "dependencyParse",
+          "append": "(${1:dependency})"
+        },
+        {
+          "string": "dependencySatisfies",
+          "append": "(${1:plugin}, ${2:dependency})"
+        }
+      ]
+    },
+    {
+      "name": "matter.World",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "add",
+          "append": "(${1:world}, ${2:object})"
+        },
+        {
+          "string": "remove",
+          "append": "(${1:world}, ${2:object}${3:, ${4:deep}})"
+        },
+        {
+          "string": "clear",
+          "append": "(${1:world}, ${2:keepStatic}${3:, ${4:deep}})"
+        },
+        "gravity",
+        "bodies",
+        "constraints",
+        "composites"
+      ]
+    },
+    {
+      "name": "matter.Axes",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "fromVertices",
+          "append": "(${1:vertices})"
+        },
+        {
+          "string": "rotate",
+          "append": "(${1:axes}, ${2:angle})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Collision",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "collides",
+          "append": "(${1:bodyA}, ${2:bodyB}${3:, ${4:engine}})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Detector",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "setBodies",
+          "append": "(${1:detector}, ${2:bodies})"
+        },
+        {
+          "string": "collisions",
+          "append": "(${1:detector})"
+        }
+      ]
+    },
+    {
+      "name": "matter.Pairs",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "()"
+        },
+        {
+          "string": "update",
+          "append": "(${1:pairs}, ${2:collisions}, ${3:timestamp})"
+        },
+        {
+          "string": "clear",
+          "append": "(${1:pairs})"
+        },
+        "table",
+        "list",
+        "collisionStart",
+        "collisionActive",
+        "collisionEnd"
+      ]
+    },
+    {
+      "name": "matter.Pair",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:collision}, ${2:timestamp})"
+        },
+        {
+          "string": "setActive",
+          "append": "(${1:pair}, ${2:isActive}, ${3:timestamp})"
+        },
+        "id",
+        "bodyA",
+        "bodyB",
+        "collision",
+        "isActive",
+        "confirmedActive",
+        "activeContacts",
+        "separation"
+      ]
+    },
+    {
+      "name": "matter.Contact",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:vertex}, ${2:parentA}, ${3:parentB})"
+        },
+        "vertex",
+        "normalImpulse",
+        "tangentImpulse"
+      ]
+    },
+    {
+      "name": "matter.Grid",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "create",
+          "append": "(${1:options})"
+        },
+        {
+          "string": "update",
+          "append": "(${1:grid}, ${2:bodies}, ${3:engine}, ${4:forceUpdate})"
+        },
+        {
+          "string": "clear",
+          "append": "(${1:grid})"
+        },
+        "buckets",
+        "pairsList",
+        "bucketWidth",
+        "bucketHeight"
+      ]
+    },
+    {
+      "name": "howler.globals",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "Howl",
+          "append": ""
+        },
+        {
+          "string": "Howler",
+          "append": ""
+        }
+      ]
+    },
+    {
+      "name": "howler.Howl",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "play",
+          "append": "(${1:spriteOrId})"
+        },
+        {
+          "string": "pause",
+          "append": "(${1:id})"
+        },
+        {
+          "string": "stop",
+          "append": "(${1:id})"
+        },
+        {
+          "string": "mute",
+          "append": "(${1:muted}${2:, ${3:id}})"
+        },
+        {
+          "string": "volume",
+          "append": "(${1:volume}${2:, ${3:id}})"
+        },
+        {
+          "string": "fade",
+          "append": "(${1:from}, ${2:to}, ${3:duration}${4:, ${5:id}})"
+        },
+        {
+          "string": "rate",
+          "append": "(${1:rate}${2:, ${3:id}})"
+        },
+        {
+          "string": "seek",
+          "append": "(${1:seek}${2:, ${3:id}})"
+        },
+        {
+          "string": "loop",
+          "append": "(${1:loop}${2:, ${3:id}})"
+        },
+        {
+          "string": "playing",
+          "append": "(${1:id})"
+        },
+        {
+          "string": "duration",
+          "append": "(${1:id})"
+        },
+        {
+          "string": "state",
+          "append": "()"
+        },
+        {
+          "string": "load",
+          "append": "()"
+        },
+        {
+          "string": "unload",
+          "append": "()"
+        },
+        {
+          "string": "on",
+          "append": "(${1:event}, ${2:callback}${3:, ${4:id}})"
+        },
+        {
+          "string": "once",
+          "append": "(${1:event}, ${2:callback}${3:, ${4:id}})"
+        },
+        {
+          "string": "off",
+          "append": "(${1:event}${2:, ${3:callback}${4:, ${5:id}}})"
+        },
+        {
+          "string": "stereo",
+          "append": "(${1:pan}${2:, ${3:id}})"
+        },
+        {
+          "string": "pos",
+          "append": "(${1:x}, ${2:y}, ${3:z}${4:, ${5:id}})"
+        },
+        {
+          "string": "orientation",
+          "append": "(${1:x}, ${2:y}, ${3:z}, ${4:xUp}, ${5:yUp}, ${6:zUp}${7:, ${8:id}})"
+        },
+        {
+          "string": "pannerAttr",
+          "append": "(${1:options}${2:, ${3:id}})"
+        }
+      ]
+    },
+    {
+      "name": "howler.Howl.properties",
+      "defaultAppend": "",
+      "strings": [
+        "options",
+        "_src",
+        "_sprite",
+        "_volume",
+        "_rate",
+        "_loop",
+        "_autoplay",
+        "_mute",
+        "_state",
+        "_sounds",
+        "_duration",
+        "_pool",
+        "_format",
+        "_html5",
+        "_preload",
+        "_xhr",
+        "_onload",
+        "_onloaderror",
+        "_onplay",
+        "_onplayerror",
+        "_onend",
+        "_onpause",
+        "_onstop",
+        "_onmute",
+        "_onvolume",
+        "_onrate",
+        "_onseek",
+        "_onfade",
+        "_onunlock"
+      ]
+    },
+    {
+      "name": "howler.Howler",
+      "defaultAppend": "",
+      "strings": [
+        {
+          "string": "mute",
+          "append": "(${1:muted})"
+        },
+        {
+          "string": "volume",
+          "append": "(${1:volume})"
+        },
+        {
+          "string": "stop",
+          "append": "()"
+        },
+        {
+          "string": "codecs",
+          "append": "(${1:extension})"
+        },
+        {
+          "string": "unload",
+          "append": "()"
+        },
+        {
+          "string": "stereo",
+          "append": "(${1:pan})"
+        },
+        {
+          "string": "pos",
+          "append": "(${1:x}, ${2:y}, ${3:z})"
+        },
+        {
+          "string": "orientation",
+          "append": "(${1:x}, ${2:y}, ${3:z}, ${4:xUp}, ${5:yUp}, ${6:zUp})"
+        },
+        "usingWebAudio",
+        "html5PoolSize",
+        "noAudio",
+        "autoUnlock",
+        "autoSuspend",
+        "ctx",
+        "masterGain"
+      ]
+    },
+    {
+      "name": "howler.Howl.events",
+      "defaultAppend": "",
+      "strings": [
+        "load",
+        "loaderror",
+        "play",
+        "playerror",
+        "end",
+        "pause",
+        "stop",
+        "mute",
+        "volume",
+        "rate",
+        "seek",
+        "fade",
+        "unlock"
+      ]
+    },
+    {
+      "name": "howler.Howl.options",
+      "defaultAppend": "",
+      "strings": [
+        "src",
+        "volume",
+        "html5",
+        "loop",
+        "preload",
+        "autoplay",
+        "mute",
+        "sprite",
+        "rate",
+        "pool",
+        "format",
+        "xhr",
+        "onload",
+        "onloaderror",
+        "onplay",
+        "onplayerror",
+        "onend",
+        "onpause",
+        "onstop",
+        "onmute",
+        "onvolume",
+        "onrate",
+        "onseek",
+        "onfade",
+        "onunlock"
+      ]
+    }
+  ],
+  "contexts": [
+    {
+      "description": "Control keywords",
+      "scope": "source.js - comment - string",
+      "pattern": "(?<!\\.|\\[|\\(|,)\\b([a-zA-Z]+)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.keywords.control"
+      ]
+    },
+    {
+      "description": "else if keyword",
+      "scope": "source.js - comment - string",
+      "pattern": "(?<!\\.|\\[|\\(|,)\\b(e[lse if]*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.keywords.control.else-if"
+      ]
+    },
+    {
+      "description": "Non-control keywords",
+      "scope": "source.js - comment - string",
+      "pattern": "(?<!\\.)\\b([a-zA-Z]+)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.keywords",
+        "js.keywords.modern"
+      ]
+    },
+    {
+      "description": "Variables, functions, and q5/q5play globals",
+      "scope": "source.js - comment - string",
+      "pattern": "(?<!\\.)\\b([a-zA-Z]+)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.functions",
+        "js.dom.variables",
+        "js.dom.window.methods.global",
+        "q5.globals",
+        "q5.variables",
+        "q5.lifecycle",
+        "q5play.globals"
+      ]
+    },
+    {
+      "description": "Properties and methods (including modern JS, q5 vector, q5play sprite)",
+      "scope": "source.js - comment - string",
+      "pattern": "\\.([a-zA-Z][a-zA-Z ]*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.properties",
+        "js.methods",
+        "js.methods.modern",
+        "js.dom.properties",
+        "js.dom.methods",
+        "q5.vector.methods",
+        "q5play.sprite.properties",
+        "q5play.sprite.methods",
+        "q5play.group.methods",
+        "q5play.world.methods"
+      ]
+    },
+    {
+      "description": "Native objects",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bnew\\s+([a-zA-Z]*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects",
+        "js.native-objects.modern"
+      ]
+    },
+    {
+      "description": "Native objects without new",
+      "scope": "source.js - comment - string",
+      "pattern": "(?<!new )\\b([A-Z][a-zA-Z]*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.static",
+        "js.native-objects.static.modern"
+      ]
+    },
+    {
+      "description": "Native objects, Date",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bDate\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.Date"
+      ]
+    },
+    {
+      "description": "Native objects, Math",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bMath\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.Math"
+      ]
+    },
+    {
+      "description": "Native objects, Number",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bNumber\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.Number"
+      ]
+    },
+    {
+      "description": "Native objects, String",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bString\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.String"
+      ]
+    },
+    {
+      "description": "Native objects, Node",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bNode\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.Node"
+      ]
+    },
+    {
+      "description": "Promise static methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bPromise\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.Promise"
+      ]
+    },
+    {
+      "description": "JSON methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bJSON\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.JSON"
+      ]
+    },
+    {
+      "description": "console methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bconsole\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.console"
+      ]
+    },
+    {
+      "description": "Array static methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bArray\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.Array.static"
+      ]
+    },
+    {
+      "description": "Object modern static methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bObject\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.native-objects.Object.modern"
+      ]
+    },
+    {
+      "description": "classList methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bclassList\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.classList.methods"
+      ]
+    },
+    {
+      "description": "performance methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bperformance\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.performance.methods"
+      ]
+    },
+    {
+      "description": "navigator properties and methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bnavigator\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.navigator.properties",
+        "js.dom.navigator.methods"
+      ]
+    },
+    {
+      "description": "Q5.Vector static methods",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bQ5\\.Vector\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "q5.Vector.static"
+      ]
+    },
+    {
+      "description": "q5play keyboard input",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bkb\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "q5play.kb.methods"
+      ]
+    },
+    {
+      "description": "q5play mouse input",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bmouse\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "q5play.mouse.methods"
+      ]
+    },
+    {
+      "description": "q5play world properties",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bworld\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "q5play.world.properties",
+        "q5play.world.methods"
+      ]
+    },
+    {
+      "description": "q5play camera properties",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bcamera\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "q5play.camera.properties"
+      ]
+    },
+    {
+      "description": "DOM events",
+      "scope": "source.js string",
+      "pattern": "\\b(?:addEventListener|removeEventListener)\\s*\\(\\s*['\"]([a-zA-Z]*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.events"
+      ]
+    },
+    {
+      "description": "document",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bdocument\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.document.properties",
+        "js.dom.document.methods"
+      ]
+    },
+    {
+      "description": "history",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bhistory\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.history.properties",
+        "js.dom.history.methods"
+      ]
+    },
+    {
+      "description": "location",
+      "scope": "source.js - comment - string",
+      "pattern": "\\blocation\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.location.properties",
+        "js.dom.location.methods"
+      ]
+    },
+    {
+      "description": "screen",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bscreen\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.screen.properties"
+      ]
+    },
+    {
+      "description": "localStorage and sessionStorage",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:localStorage|sessionStorage)\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "js.dom.localStorage.methods"
+      ]
+    },
+    {
+      "description": "window",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(window|opener|parent|self|top)\\.(\\w*)",
+      "completionCaptureIndex": 2,
+      "completionSetNames": [
+        "js.dom.window.properties",
+        "js.dom.window.methods",
+        "js.dom.window.methods.global"
+      ]
+    },
+    {
+      "description": "allSprites group",
+      "scope": "source.js - comment - string",
+      "pattern": "\\ballSprites\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "q5play.group.methods"
+      ]
+    },
+    {
+      "description": "Matter.js top-level namespace",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bMatter\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.globals"
+      ]
+    },
+    {
+      "description": "Matter.js Engine",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Engine\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Engine"
+      ]
+    },
+    {
+      "description": "Matter.js Render",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Render\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Render"
+      ]
+    },
+    {
+      "description": "Matter.js Runner",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Runner\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Runner"
+      ]
+    },
+    {
+      "description": "Matter.js Bodies",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Bodies\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Bodies"
+      ]
+    },
+    {
+      "description": "Matter.js Body",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Body\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Body"
+      ]
+    },
+    {
+      "description": "Matter.js Composite",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Composite\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Composite"
+      ]
+    },
+    {
+      "description": "Matter.js Composites",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Composites\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Composites"
+      ]
+    },
+    {
+      "description": "Matter.js Constraint",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Constraint\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Constraint"
+      ]
+    },
+    {
+      "description": "Matter.js Events",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Events\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Events"
+      ]
+    },
+    {
+      "description": "Matter.js Query",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Query\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Query"
+      ]
+    },
+    {
+      "description": "Matter.js Vector",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Vector\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Vector"
+      ]
+    },
+    {
+      "description": "Matter.js Mouse",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Mouse\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Mouse"
+      ]
+    },
+    {
+      "description": "Matter.js MouseConstraint",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?MouseConstraint\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.MouseConstraint"
+      ]
+    },
+    {
+      "description": "Matter.js Bounds",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Bounds\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Bounds"
+      ]
+    },
+    {
+      "description": "Matter.js Vertices",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Vertices\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Vertices"
+      ]
+    },
+    {
+      "description": "Matter.js Sleeping",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Sleeping\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Sleeping"
+      ]
+    },
+    {
+      "description": "Matter.js Svg",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Svg\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Svg"
+      ]
+    },
+    {
+      "description": "Matter.js Common",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Common\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Common"
+      ]
+    },
+    {
+      "description": "Matter.js Plugin",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Plugin\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Plugin"
+      ]
+    },
+    {
+      "description": "Matter.js World",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?World\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.World"
+      ]
+    },
+    {
+      "description": "Matter.js Axes",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Axes\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Axes"
+      ]
+    },
+    {
+      "description": "Matter.js Collision",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Collision\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Collision"
+      ]
+    },
+    {
+      "description": "Matter.js Detector",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Detector\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Detector"
+      ]
+    },
+    {
+      "description": "Matter.js Pairs",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Pairs\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Pairs"
+      ]
+    },
+    {
+      "description": "Matter.js Pair",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Pair\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Pair"
+      ]
+    },
+    {
+      "description": "Matter.js Contact",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Contact\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Contact"
+      ]
+    },
+    {
+      "description": "Matter.js Grid",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Matter\\.)?Grid\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "matter.Grid"
+      ]
+    },
+    {
+      "description": "Howler.js namespace",
+      "scope": "source.js - comment - string",
+      "pattern": "\\bHowler\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "howler.Howler"
+      ]
+    },
+    {
+      "description": "Howler.js Howl instance",
+      "scope": "source.js - comment - string",
+      "pattern": "\\b(?:Howl|sound|audio)\\.(\\w*)",
+      "completionCaptureIndex": 1,
+      "completionSetNames": [
+        "howler.Howl"
+      ]
+    }
+  ]
+}
