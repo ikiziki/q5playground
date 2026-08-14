@@ -60,6 +60,11 @@ class QuadTree {
 		strokeWeight(1);
 		noFill();
 		rect(this.x, this.y, this.width, this.height);
+		if (this.subdivided) {
+			for (let child of this.children) {
+				child.draw();
+			}
+		}
 		pop();
 	}
 	
