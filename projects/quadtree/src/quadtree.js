@@ -3,8 +3,6 @@
 
 console.log("quadtree loaded")
 
-
-
 class CircFinder {
 	constructor(x, y, radius) {
 		this.x = x ?? 0;
