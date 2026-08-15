@@ -40,10 +40,14 @@ function draw() {
 	qt.draw();
 	pop();
 	
-	// draw particles
-	let objects = qt.query(new RectFinder(0, 0, windowWidth, windowHeight));
-	for (let object of objects) {
-		object.draw();
+	// draw particles within touch range
+	if (touches.length > 0) {
+		let range = new CircFinder(touches[0].x, touches[0].y, 100);
+		let objects = qt.query(range);
+		
+		for (let object of objects) {
+			object.draw();
+		}
 	}
 }
 
