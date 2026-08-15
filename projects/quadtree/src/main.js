@@ -15,8 +15,7 @@ function setup() {
 	console.log(qt);
 }
 
-function update(deltaTime) {
-}
+function update(deltaTime) {}
 
 function draw() {
 	background(theme.bg);
@@ -25,14 +24,14 @@ function draw() {
 	push();
 	fill(theme.fg);
 	if (touches.length > 0) {
-  	  ellipse(touches[0].x, touches[0].y, 25, 25);
-  	};
+		ellipse(touches[0].x, touches[0].y, 25, 25);
+	};
 	pop();
 
 	//Draw mouse
 	push();
 	fill(theme.fg);
-  	ellipse(mouseX, mouseY, 25, 25);
+	ellipse(mouseX, mouseY, 25, 25);
 	pop();
 
 	// recurively draw the quadtree
@@ -42,5 +41,5 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(windowWidth, windowHeight);
 }

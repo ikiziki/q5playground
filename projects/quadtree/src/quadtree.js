@@ -39,17 +39,14 @@ class QuadTree {
 		this.parent = null;
 		this.objects = [];
 	}
-	
-	insert(){
-	}
-	
-	intersects(){
-	}
-	
-	query(){
-	}
-	
-	contains(object){
+
+	insert() {}
+
+	intersects() {}
+
+	query() {}
+
+	contains(object) {
 		return (
 			object.x >= this.x &&
 			object.x < this.x + this.width &&
@@ -57,14 +54,14 @@ class QuadTree {
 			object.y < this.y + this.height
 		);
 	}
-	
-	subdivide(){
+
+	subdivide() {
 		if (this.subdivided) return;
 		if (this.depth >= this.maxDepth) return;
-		
-		let halfwidth = this.width/2;
-		let halfheight = this.height/2;
-	
+
+		let halfwidth = this.width / 2;
+		let halfheight = this.height / 2;
+
 		this.children.NW = new QuadTree(
 			this.x,
 			this.y,
@@ -104,7 +101,7 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
-		
+
 		this.children.NW.parent = this;
 		this.children.NE.parent = this;
 		this.children.SW.parent = this;
@@ -112,7 +109,7 @@ class QuadTree {
 
 		this.subdivided = true;
 	}
-	
+
 	clear() {
 		this.objects = [];
 		this.children = {
@@ -123,8 +120,8 @@ class QuadTree {
 		};
 		this.subdivided = false;
 	}
-	
-	draw(){
+
+	draw() {
 		push();
 		stroke(theme.fg);
 		strokeWeight(1);
@@ -137,5 +134,5 @@ class QuadTree {
 		};
 		pop();
 	}
-	
+
 }
