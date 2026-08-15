@@ -30,7 +30,12 @@ class QuadTree {
 		this.depth = depth ?? 0;
 		this.maxDepth = maxDepth ?? 4;
 		this.subdivided = false;
-		this.children = [];
+		this.children = {
+			NW: null,
+			NE: null,
+			SW: null,
+			SE: null
+		};
 		this.parent = null;
 		this.objects = [];
 		this.count = this.objects.length;
@@ -62,7 +67,7 @@ class QuadTree {
 		let halfheight = this.height/2;
 		
 		this.children = [
-			new QuadTree(
+			this.children.NW = new QuadTree(
 				this.x,
 				this.y,
 				halfwidth,
@@ -72,7 +77,7 @@ class QuadTree {
 				this.maxDepth
 			),
 
-			new QuadTree(
+			this.children.NE = new QuadTree(
 				this.x + halfwidth,
 				this.y,
 				halfwidth,
@@ -81,7 +86,7 @@ class QuadTree {
 				this.depth + 1,
 				this.maxDepth
 			),
-			new QuadTree(
+			this.children.SW =new QuadTree(
 				this.x,
 				this.y + halfheight,
 				halfwidth,
@@ -90,7 +95,7 @@ class QuadTree {
 				this.depth + 1,
 				this.maxDepth
 			),
-			new QuadTree(
+			this.children.SE =new QuadTree(
 				this.x + halfwidth,
 				this.y + halfheight,
 				halfwidth,
