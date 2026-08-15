@@ -33,6 +33,12 @@ function draw() {
 	push();
 	fill(theme.fg);
 	ellipse(mouseX, mouseY, 25, 25);
+	let range = new CircFinder(mouseX, mouseY, 100);
+	let objects = qt.query(range);
+
+	for (let object of objects) {
+		object.draw();
+	}
 	pop();
 
 	// recurively draw the quadtree
