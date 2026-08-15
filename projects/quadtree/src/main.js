@@ -5,7 +5,8 @@ function setup() {
 	theme = new ThemeEngine();
 	qt = new QuadTree(0, 0, windowWidth, windowHeight, 10, 0, 4);
 	createCanvas(windowWidth, windowHeight);
-		
+	
+	//show the quadtree in the console
 	console.log(qt)
 }
 
@@ -14,6 +15,8 @@ function update(deltaTime) {
 
 function draw() {
 	background(theme.bg);
+
+	//subdivide the quadtree
 	qt.subdivide();
 
 	//Draw touches
@@ -31,6 +34,7 @@ function draw() {
   	ellipse(mouseX, mouseY, 25, 25);
 	pop();
 
+	// recurively draw the quadtree
 	push();
 	qt.draw();
 	pop();
