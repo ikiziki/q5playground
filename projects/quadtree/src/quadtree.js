@@ -45,7 +45,13 @@ class QuadTree {
 	query(){
 	}
 	
-	contains(){
+	contains(object){
+		return (
+			object.x >= this.x &&
+			object.x < this.x + this.width &&
+			object.y >= this.y &&
+			object.y < this.y + this.height
+		);
 	}
 	
 	subdivide(){

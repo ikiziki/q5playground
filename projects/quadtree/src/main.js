@@ -14,18 +14,24 @@ function update(deltaTime) {
 
 function draw() {
 	background(theme.bg);
-		
+	qt.subdivide();
+
+	//Draw touches
 	push();
 	fill(theme.fg);
 	if (touches.length > 0) {
   	ellipse(touches[0].x, touches[0].y, 25, 25);
 		console.log(floor(touches[0].x), floor(touches[0].y));
-  }
+  	};
 	pop();
-		
-	qt.subdivide()
-		
-	push()
+
+	//Draw mouse
+	push();
+	fill(theme.fg);
+  	ellipse(mouseX, mouseY, 25, 25);
+	pop();
+
+	push();
 	qt.draw();
 	pop();
 }
