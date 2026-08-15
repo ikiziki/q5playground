@@ -65,46 +65,43 @@ class QuadTree {
 		
 		let halfwidth = this.width/2;
 		let halfheight = this.height/2;
-		
-		this.children = [
-			this.children.NW = new QuadTree(
-				this.x,
-				this.y,
-				halfwidth,
-				halfheight,
-				this.capacity,
-				this.depth + 1,
-				this.maxDepth
-			),
-
-			this.children.NE = new QuadTree(
-				this.x + halfwidth,
-				this.y,
-				halfwidth,
-				halfheight,
-				this.capacity,
-				this.depth + 1,
-				this.maxDepth
-			),
-			this.children.SW = new QuadTree(
-				this.x,
-				this.y + halfheight,
-				halfwidth,
-				halfheight,
-				this.capacity,
-				this.depth + 1,
-				this.maxDepth
-			),
-			this.children.SE = new QuadTree(
-				this.x + halfwidth,
-				this.y + halfheight,
-				halfwidth,
-				halfheight,
-				this.capacity,
-				this.depth + 1,
-				this.maxDepth
-			)
-		];
+	
+		this.children.NW = new QuadTree(
+			this.x,
+			this.y,
+			halfwidth,
+			halfheight,
+			this.capacity,
+			this.depth + 1,
+			this.maxDepth
+		),
+		this.children.NE = new QuadTree(
+			this.x + halfwidth,
+			this.y,
+			halfwidth,
+			halfheight,
+			this.capacity,
+			this.depth + 1,
+			this.maxDepth
+		),
+		this.children.SW = new QuadTree(
+			this.x,
+			this.y + halfheight,
+			halfwidth,
+			halfheight,
+			this.capacity,
+			this.depth + 1,
+			this.maxDepth
+		),
+		this.children.SE = new QuadTree(
+			this.x + halfwidth,
+			this.y + halfheight,
+			halfwidth,
+			halfheight,
+			this.capacity,
+			this.depth + 1,
+			this.maxDepth
+		);
 		this.subdivided = true;
 	}
 	
