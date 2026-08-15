@@ -37,7 +37,7 @@ class Particle {
 		this.fX = 0; // x force
 		this.fY = 0; // y force
 		this.mass = 1;
-		this.radius = 2;
+		this.radius = 5;
 		this.type = type ?? setType();
 		this.color = getTypeColor(this.type);
 		this.active = true;

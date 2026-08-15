@@ -42,35 +42,74 @@ class QuadTree {
 
 	insert(object) {
 		if (!this.contains(object)) return false;
-	
 		if (this.objects.length < this.capacity && !this.subdivided) {
 			this.objects.push(object);
 			return true;
 		}
-	
 		if (this.depth >= this.maxDepth) {
 			this.objects.push(object);
 			return true;
 		}
-	
 		if (!this.subdivided) {
 			this.subdivide();
 		}
-	
 		for (let child of Object.values(this.children)) {
 			if (child.insert(object)) {
 				return true;
 			}
 		}
-			return false;
+		return false;
+	}
+	
+	intersects(range) {
+		if (range instanceof RectFinder) {
+			return !(
+				range.x > this.x + this.width ||
+				range.x + range.width < this.x ||
+				range.y > this.y + this.height ||
+				range.y + range.height < this.y
+			);
+		}
+		if (range instanceof CircFinder) {
+			let closestX = Math.max(this.x,Math.min(range.x, this.x + this.width));
+			let closestY = Math.max(this.y,Math.min(range.y, this.y + this.height));
+			let dx = range.x - closestX;
+			let dy = range.y - closestY;
+			return (dx * dx + dy * dy) <= range.radius * range.radius;
+		}
+		return false;
 	}
 
-	intersects() {
+	query(range, found = []) {
+		if (!this.intersects(range)) return found;
+		for (let object of this.objects) {
+			if (range instanceof RectFinder) {
+				if (
+					object.x >= range.x &&
+					object.x < range.x + range.width &&
+					object.y >= range.y &&
+					object.y < range.y + range.height
+				) {
+					found.push(object);
+				}
+			}
+			if (range instanceof CircFinder) {
+				let dx = object.x - range.x;
+				let dy = object.y - range.y;
+	
+				if (dx * dx + dy * dy <= range.radius * range.radius) {
+					found.push(object);
+				}
+			}
+		}
+		if (this.subdivided) {
+			for (let child of Object.values(this.children)) {
+				child.query(range, found);
+			}
+		}
+		return found;
 	}
-
-	query() {
-	}
-
+	
 	contains(object) {
 		return (
 			object.x >= this.x &&
@@ -83,10 +122,8 @@ class QuadTree {
 	subdivide() {
 		if (this.subdivided) return;
 		if (this.depth >= this.maxDepth) return;
-
 		let halfwidth = this.width / 2;
 		let halfheight = this.height / 2;
-
 		this.children.NW = new QuadTree(
 			this.x,
 			this.y,
@@ -96,7 +133,6 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
-
 		this.children.NE = new QuadTree(
 			this.x + halfwidth,
 			this.y,
@@ -106,7 +142,6 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
-
 		this.children.SW = new QuadTree(
 			this.x,
 			this.y + halfheight,
@@ -116,7 +151,6 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
-
 		this.children.SE = new QuadTree(
 			this.x + halfwidth,
 			this.y + halfheight,
@@ -126,15 +160,12 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
-
 		this.children.NW.parent = this;
 		this.children.NE.parent = this;
 		this.children.SW.parent = this;
 		this.children.SE.parent = this;
 
 		this.subdivided = true;
-		
-		// Redistribute existing objects
 
 		for (let object of this.objects) {
 			for (let child of Object.values(this.children)) {

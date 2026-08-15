@@ -8,11 +8,12 @@ function setup() {
 	theme = new ThemeEngine();
 	qt = new QuadTree(0, 0, windowWidth, windowHeight, 10, 0, 4);
 	createCanvas(windowWidth, windowHeight);
-
-	//subdivide the quadtree
-	qt.subdivide();
-	//console.log(qt) after subdivision;	
-	console.log(qt);
+	
+	//qt insertion test
+	for (let i = 0; i < 250; i++) {
+		qt.insert(new Particle());
+	}
+	
 }
 
 function update(deltaTime) {}
@@ -38,6 +39,12 @@ function draw() {
 	push();
 	qt.draw();
 	pop();
+	
+	// draw particles
+	let objects = qt.query(new RectFinder(0, 0, windowWidth, windowHeight));
+	for (let object of objects) {
+		object.draw();
+	}
 }
 
 function windowResized() {
