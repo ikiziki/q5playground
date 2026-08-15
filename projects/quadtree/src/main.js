@@ -1,3 +1,6 @@
+// Particle Life Playground
+// chris geese @ 2026
+
 let theme;
 let qt;
 
