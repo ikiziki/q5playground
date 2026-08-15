@@ -11,7 +11,7 @@ function setup() {
 
 	//subdivide the quadtree
 	qt.subdivide();
-	//onsole.log(qt) after subdivision;	
+	//console.log(qt) after subdivision;	
 	console.log(qt);
 }
 

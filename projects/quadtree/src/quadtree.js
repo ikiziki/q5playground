@@ -40,11 +40,36 @@ class QuadTree {
 		this.objects = [];
 	}
 
-	insert() {}
+	insert(object) {
+		if (!this.contains(object)) return false;
+	
+		if (this.objects.length < this.capacity && !this.subdivided) {
+			this.objects.push(object);
+			return true;
+		}
+	
+		if (this.depth >= this.maxDepth) {
+			this.objects.push(object);
+			return true;
+		}
+	
+		if (!this.subdivided) {
+			this.subdivide();
+		}
+	
+		for (let child of Object.values(this.children)) {
+			if (child.insert(object)) {
+				return true;
+			}
+		}
+			return false;
+	}
 
-	intersects() {}
+	intersects() {
+	}
 
-	query() {}
+	query() {
+	}
 
 	contains(object) {
 		return (
@@ -108,6 +133,17 @@ class QuadTree {
 		this.children.SE.parent = this;
 
 		this.subdivided = true;
+		
+		// Redistribute existing objects
+
+		for (let object of this.objects) {
+			for (let child of Object.values(this.children)) {
+				if (child.insert(object)) {
+					break;
+				}
+			}
+		}
+		this.objects = [];
 	}
 
 	clear() {
@@ -134,5 +170,4 @@ class QuadTree {
 		};
 		pop();
 	}
-
 }
