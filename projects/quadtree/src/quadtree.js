@@ -74,6 +74,7 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
+
 		this.children.NE = new QuadTree(
 			this.x + halfwidth,
 			this.y,
@@ -83,6 +84,7 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
+
 		this.children.SW = new QuadTree(
 			this.x,
 			this.y + halfheight,
@@ -92,6 +94,7 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
+
 		this.children.SE = new QuadTree(
 			this.x + halfwidth,
 			this.y + halfheight,
@@ -101,6 +104,11 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
+		this.children.NW.parent = this;
+		this.children.NE.parent = this;
+		this.children.SW.parent = this;
+		this.children.SE.parent = this;
+		
 		this.subdivided = true;
 	}
 	
