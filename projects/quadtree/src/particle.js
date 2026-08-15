@@ -28,30 +28,53 @@ function getTypeColor(type){
 // particle class
 class Particle {
 	constructor(x, y, type) {
-		this.x = x ?? rX();
-		this.y = y ?? rY();
+		this.x = x ?? rX(); // particle x position
+		this.y = y ?? rY(); // particle y position
 		this.vX = 0; // x velocity
 		this.vY = 0; // y velocity
 		this.aX = 0; // x acceleration
 		this.aY = 0; // y acceleration
 		this.fX = 0; // x force
 		this.fY = 0; // y force
-		this.mass = 1;
-		this.radius = 5;
-		this.type = type ?? setType();
-		this.color = getTypeColor(this.type);
-		this.active = true;
+		this.lifespan = 1; // lifespan can be affected in the sim
+		this.maxSpeed = 5; // max particle speed 
+		this.maxForce = 1; // max force that can be applied
+		this.mass = 1; // the mass of the particle
+		this.radius = 5; // the size of the particle
+		this.type = type ?? setType(); // particle type
+		this.color = getTypeColor(this.type); // particle color
+		this.active = true; // is this particle currently active
 	}
 	
-	update(){
+	decay() {
 	}
 	
-	draw(){
+	expire() {
+	}
+	
+	update() {
+	}
+	
+	drawEllipse(){
 		push()
 		noStroke()
 		fill(this.color)
-		ellipse(this.x, this.y, this.radius)
+		ellipse(this.x, this.y, this.radius * 2)
 		pop()
+	}
+	
+	drawHeading(){
+		push();
+		noStroke();
+		fill(this.color);
+		let angle = Math.atan2(this.vY, this.vX);
+		translate(this.x, this.y);
+		rotate(angle);
+		triangle(this.radius, 0,-this.radius, -this.radius * 0.6,-this.radius, this.radius * 0.6);
+		pop();
 	}
 
 }
+
+
+
