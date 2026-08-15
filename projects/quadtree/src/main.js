@@ -5,9 +5,6 @@ function setup() {
 	theme = new ThemeEngine();
 	qt = new QuadTree(0, 0, windowWidth, windowHeight, 10, 0, 4);
 	createCanvas(windowWidth, windowHeight);
-	
-	//show the quadtree in the console
-	console.log(qt)
 }
 
 function update(deltaTime) {
@@ -38,6 +35,9 @@ function draw() {
 	push();
 	qt.draw();
 	pop();
+
+	//show the quadtree in the console
+	console.log(qt)
 }
 
 function windowResized() {
