@@ -104,11 +104,12 @@ class QuadTree {
 			this.depth + 1,
 			this.maxDepth
 		);
+		
 		this.children.NW.parent = this;
 		this.children.NE.parent = this;
 		this.children.SW.parent = this;
 		this.children.SE.parent = this;
-		
+
 		this.subdivided = true;
 	}
 	
