@@ -15,7 +15,8 @@ function setup() {
 	}	
 }
 
-function update(deltaTime) {}
+function update(deltaTime) {
+}
 
 function draw() {
 	background(theme.bg);

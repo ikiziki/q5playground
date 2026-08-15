@@ -52,7 +52,7 @@ class Particle {
 	expire() {
 	}
 	
-	update() {
+	update(deltatime) {
 	}
 	
 	drawEllipse(){
