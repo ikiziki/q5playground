@@ -38,7 +38,6 @@ class QuadTree {
 		};
 		this.parent = null;
 		this.objects = [];
-		this.count = this.objects.length;
 	}
 	
 	insert(){
@@ -107,7 +106,12 @@ class QuadTree {
 	
 	clear() {
 		this.objects = [];
-		this.children = [];
+		this.children = {
+			NW: null,
+			NE: null,
+			SW: null,
+			SE: null
+		};
 		this.subdivided = false;
 	}
 	
@@ -118,10 +122,10 @@ class QuadTree {
 		noFill();
 		rect(this.x, this.y, this.width, this.height);
 		if (this.subdivided) {
-			for (let child of this.children) {
+			for (let child of Object.values(this.children)) {
 				child.draw();
-			}
-		}
+			};
+		};
 		pop();
 	}
 	
