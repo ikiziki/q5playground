@@ -86,7 +86,7 @@ class QuadTree {
 				this.depth + 1,
 				this.maxDepth
 			),
-			this.children.SW =new QuadTree(
+			this.children.SW = new QuadTree(
 				this.x,
 				this.y + halfheight,
 				halfwidth,
@@ -95,7 +95,7 @@ class QuadTree {
 				this.depth + 1,
 				this.maxDepth
 			),
-			this.children.SE =new QuadTree(
+			this.children.SE = new QuadTree(
 				this.x + halfwidth,
 				this.y + halfheight,
 				halfwidth,
