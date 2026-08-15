@@ -25,8 +25,7 @@ function draw() {
 	push();
 	fill(theme.fg);
 	if (touches.length > 0) {
-  	ellipse(touches[0].x, touches[0].y, 25, 25);
-		console.log(floor(touches[0].x), floor(touches[0].y));
+  		ellipse(touches[0].x, touches[0].y, 25, 25);
   	};
 	pop();
 
