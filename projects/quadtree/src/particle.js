@@ -46,6 +46,9 @@ class Particle {
 		this.active = true; // is this particle currently active
 	}
 	
+	generate(){
+	}
+	
 	decay() {
 	}
 	
