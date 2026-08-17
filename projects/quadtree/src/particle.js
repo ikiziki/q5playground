@@ -36,26 +36,15 @@ class Particle {
 		this.aY = 0; // y acceleration
 		this.fX = 0; // x force
 		this.fY = 0; // y force
-		this.lifespan = 1; // lifespan can be affected in the sim
 		this.maxSpeed = 5; // max particle speed 
 		this.maxForce = 1; // max force that can be applied
 		this.mass = 1; // the mass of the particle
 		this.radius = 5; // the size of the particle
 		this.type = type ?? setType(); // particle type
 		this.color = getTypeColor(this.type); // particle color
-		this.active = true; // is this particle currently active
 	}
 	
-	generate(){
-	}
-	
-	decay() {
-	}
-	
-	expire() {
-	}
-	
-	update(deltatime) {
+	update(deltaTime) {
 	}
 	
 	drawEllipse(){
