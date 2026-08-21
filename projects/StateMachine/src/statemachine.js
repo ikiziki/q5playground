@@ -2,22 +2,65 @@
 // chris geese @ 2026
 
 class StateMachine {
-  constructor() {
-    this.currentState = null;
-    this.previousState = null;
-    this.stateStack = {};
-  }
-  enter(state) {}
+	constructor() {
+		this.currentState = null;
+		this.previousState = null;
+		this.stateStack = [];
+	}
 
-  push(state) {}
+	enter(state) {
+		if (this.currentState) {
+			this.currentState.exit();
+			this.previousState = this.currentState;
+		}
+		this.currentState = state;
+		this.currentState.enter();
+	}
 
-  pop(state) {}
+	push(state) {
+		if (this.currentState) {
+			this.stateStack.push(this.currentState);
+			this.currentState.pause();
+		}
+		this.currentState = state;
+		this.currentState.enter();
+	}
 
-  update(deltaTime) {}
+	pop() {
+		if (this.currentState) {
+			this.currentState.exit();
+		}
+		this.currentState = this.stateStack.pop();
+		this.currentState.resume();
+	}
 
-  pause() {}
+	update(deltaTime) {
+		if (this.currentState) {
+			this.currentState.update(deltaTime);
+		}
+	}
+	
+	draw() {
+		if (this.currentState) {
+			this.currentState.draw();
+		}
+	}
 
-  resume() {}
-  
-  exit() {}
+	pause() {
+		if (this.currentState) {
+			this.currentState.pause();
+		}
+	}
+
+	resume() {
+		if (this.currentState) {
+			this.currentState.resume();
+		}
+	}
+
+	exit() {
+		if (this.currentState) {
+			this.currentState.exit();
+		}
+	}
 }
