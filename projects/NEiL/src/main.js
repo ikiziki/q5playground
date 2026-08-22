@@ -1,7 +1,9 @@
 let theme;
+let gsm;
 
 function setup() {
     theme = new ThemeEngine();
+		gsm = new StateMachine();
     createCanvas(windowWidth, windowHeight);
 }
 
