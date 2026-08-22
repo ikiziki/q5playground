@@ -6,14 +6,14 @@ class Star {
 	constructor() {
 		this.x = rX();
 		this.y = rY();
-		this.speed = rFlt(10, 100);
+		this.speed = rFlt(1, 5);
 		this.radius = rFlt(1, 3);
 	}
 
 	update(deltaTime) {
-		this.x += this.speed * deltaTime;
+		this.x += this.speed * deltaTime/1000;
 
-		if (this.x > WIDTH) {
+		if (this.x > width) {
 			this.x = 0;
 			this.y = rY();
 		}
@@ -26,10 +26,10 @@ class Star {
 
 // starfield class
 class StarField {
-	constructor(x, y, count) {
-		this.x = x ?? WIDTH;
-		this.y = y ?? HEIGHT;
-		this.count = count ?? 250;
+	constructor() {
+		this.x = width;
+		this.y = height;
+		this.count = 250;
 		this.stars = [];
 
 		for (let i = 0; i < this.count; i++) {

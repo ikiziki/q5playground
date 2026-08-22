@@ -15,18 +15,18 @@ function rFlt(min, max) {
 
 // returns a random x position
 function rX() {
-  return Math.floor(Math.random() * (WIDTH + 1));
+  return Math.floor(Math.random() * (width + 1));
 }
 
 // returns a random y position
 function rY() {
-  return Math.floor(Math.random() * (HEIGHT + 1));
+  return Math.floor(Math.random() * (height + 1));
 }
 
 // returns a random vec2
 function rVec2() {
-  let x = Math.floor(Math.random() * (WIDTH + 1));
-  let y = Math.floor(Math.random() * (HEIGHT + 1));
+  let x = Math.floor(Math.random() * (width + 1));
+  let y = Math.floor(Math.random() * (height + 1));
   return createVector(x, y);
 }
 

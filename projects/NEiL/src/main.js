@@ -13,6 +13,7 @@ function update(deltaTime) {
 }
 
 function draw() {
+	update(deltaTime)
 	gsm.currentState.draw();
 }
 
