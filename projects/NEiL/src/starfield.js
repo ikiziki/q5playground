@@ -11,8 +11,7 @@ class Star {
 	}
 
 	update(deltaTime) {
-		this.x += this.speed * deltaTime/1000;
-
+		this.x += this.speed * deltaTime / 50;
 		if (this.x > width) {
 			this.x = 0;
 			this.y = rY();
@@ -20,6 +19,7 @@ class Star {
 	}
 
 	draw() {
+		fill(theme.fg)
 		ellipse(this.x, this.y, this.radius);
 	}
 }

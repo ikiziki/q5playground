@@ -2,10 +2,10 @@ let theme;
 let gsm;
 
 function setup() {
-	  createCanvas(windowWidth, windowHeight);
-    theme = new ThemeEngine();
-		gsm = new StateMachine();
-		gsm.enter(new MenuState());
+	createCanvas(windowWidth, windowHeight);
+	theme = new ThemeEngine();
+	gsm = new StateMachine();
+	gsm.enter(new MenuState());
 }
 
 function update(deltaTime) {
@@ -30,5 +30,5 @@ function touchEnded() {
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(windowWidth, windowHeight);
 }
