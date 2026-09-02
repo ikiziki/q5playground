@@ -1,17 +1,18 @@
-let theme;
+let game;
 
 function setup() {
-    theme = new ThemeEngine();
-    createCanvas(windowWidth, windowHeight);
+	createCanvas(windowWidth, windowHeight);
+	game = new Game();
 }
 
 function update(deltaTime) {
+	game.update();
 }
 
 function draw() {
-    background(theme.bg);
+	game.draw();
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(windowWidth, windowHeight);
 }
