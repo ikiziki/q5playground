@@ -6,7 +6,7 @@ function setup() {
 }
 
 function update(deltaTime) {
-	game.update();
+	game.update(deltaTime);
 }
 
 function draw() {
@@ -15,4 +15,16 @@ function draw() {
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
+}
+
+function touchStarted() {
+	game.touchStarted();
+}
+
+function touchMoved() {
+	game.touchMoved();
+}
+
+function touchEnded() {
+	game.touchEnded();
 }
