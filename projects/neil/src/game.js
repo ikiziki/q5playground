@@ -38,6 +38,11 @@ class Game {
 		this.camera.panEnd();
 	}
 
+	mouseWheel(event) {
+		this.camera.zoomAt(event.deltaY, mouseX, mouseY);
+		return false;
+	}
+
 }
 
 

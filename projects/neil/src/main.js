@@ -40,3 +40,7 @@ function mouseDragged() {
 function mouseReleased() {
 	game.mouseReleased();
 }
+
+function mouseWheel(event) {
+	return game.mouseWheel(event);
+}

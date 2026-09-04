@@ -27,6 +27,15 @@ class Camera {
 	panEnd() {
 		this.dragging = false;
 	}
+
+	zoomAt(delta, screenX, screenY) {
+		let worldX = this.x + (screenX - width / 2) / this.zoom;
+		let worldY = this.y + (screenY - height / 2) / this.zoom;
+		let zoomFactor = Math.pow(1.001, -delta);
+		this.zoom = constrain(this.zoom * zoomFactor, 0.25, 4);
+		this.x = worldX - (screenX - width / 2) / this.zoom;
+		this.y = worldY - (screenY - height / 2) / this.zoom;
+	}
 	
 	begin() {
 		translate(width/2, height/2);
