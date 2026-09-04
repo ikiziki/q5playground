@@ -46,7 +46,7 @@ class Game {
 function drawGrid() {
     let size = 100;
     let extent = 2000;
-    stroke(100);
+    stroke(0);
     strokeWeight(1);
     for (let x = -extent; x <= extent; x += size) {
         line(x, -extent, x, extent);
