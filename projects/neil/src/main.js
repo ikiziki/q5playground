@@ -28,3 +28,15 @@ function touchMoved() {
 function touchEnded() {
 	game.touchEnded();
 }
+
+function mousePressed() {
+	game.mousePressed();
+}
+
+function mouseDragged() {
+	game.mouseDragged();
+}
+
+function mouseReleased() {
+	game.mouseReleased();
+}

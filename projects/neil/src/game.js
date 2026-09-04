@@ -25,6 +25,19 @@ class Game {
 		this.camera.panEnd();
 	}
 
+	mousePressed() {
+		this.camera.panStart(mouseX, mouseY);
+	}
+
+	mouseDragged() {
+		this.camera.panMove(mouseX, mouseY);
+		return false;
+	}
+
+	mouseReleased() {
+		this.camera.panEnd();
+	}
+
 }
 
 
