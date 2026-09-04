@@ -13,16 +13,16 @@ class Game {
 	}
 	
 	touchStarted() {
-		this.camera.panStart(mouseX, mouseY);
+		this.camera.touchStart(touches);
 	}
 	
 	touchMoved() {
-		this.camera.panMove(mouseX, mouseY);
+		this.camera.touchMove(touches);
 		return false;
 	}
 	
 	touchEnded() {
-		this.camera.panEnd();
+		this.camera.touchEnd(touches);
 	}
 
 	mousePressed() {
