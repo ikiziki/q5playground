@@ -59,8 +59,10 @@ function drawGrid() {
     for (let y = -extent; y <= extent; y += size) {
         line(-extent, y, extent, y);
     }
-    stroke(255);
+    stroke(255,0,0);
     strokeWeight(3);
     line(0, -extent, 0, extent);
+		stroke(0,255,0);
+		strokeWeight(3)
     line(-extent, 0, extent, 0);
 }
