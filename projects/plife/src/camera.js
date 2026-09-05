@@ -6,7 +6,7 @@ class Camera {
 	}
 
 	apply() {
-		translate(width / 2, height / 2);
+		translate(windowWidth / 2, windowHeight / 2);
 		scale(this.zoom);
 		translate(-this.x, -this.y);
 	}
@@ -14,6 +14,9 @@ class Camera {
 	reset() {
 		this.x = width / 2;
 		this.y = height / 2;
-		this.zoom = 1;
+		this.zoom = min(
+			windowWidth / width,
+			windowHeight / height
+		);
 	}
 }

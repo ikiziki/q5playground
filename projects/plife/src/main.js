@@ -9,6 +9,7 @@ function update(deltaTime) {
 }
 
 function draw() {
+	update(deltaTime);
 	world.draw();
 }
 

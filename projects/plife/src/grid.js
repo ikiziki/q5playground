@@ -8,7 +8,7 @@ class Grid {
 		this.cells.clear();
 	}
 	
-	add(object) {
+	insert(object) {
 		let col = Math.floor(object.x / this.cellSize);
 		let row = Math.floor(object.y / this.cellSize);
 		let key = `${col},${row}`;
@@ -35,29 +35,39 @@ class Grid {
 				}
 			}
 		}
+		
 		return nearby;
 	}
 	
 	draw() {
-		for (let x = 0; x <= width; x += this.cellSize)
-			line(x, 0, x, height);
-	
-		for (let y = 0; y <= height; y += this.cellSize)
-			line(0, y, width, y);
-	
+		push();
+		
 		let max = 0;
-	
+		
 		for (let cell of this.cells.values())
 			max = Math.max(max, cell.length);
-	
+		
+		noStroke();
+		
 		for (let [key, cell] of this.cells) {
 			let [col, row] = key.split(",").map(Number);
 			let x = col * this.cellSize;
 			let y = row * this.cellSize;
-			let intensity = cell.length / max;
-	
-			fill(255, 0, 0, intensity * 100);
+			let intensity = max ? cell.length / max : 0;
+			
+			fill(255, 0, 0, intensity * 40);
 			rect(x, y, this.cellSize, this.cellSize);
 		}
+		
+		noFill();
+		stroke(0, 40);
+		
+		for (let x = 0; x <= width; x += this.cellSize)
+			line(x, 0, x, height);
+		
+		for (let y = 0; y <= height; y += this.cellSize)
+			line(0, y, width, y);
+		
+		pop();
 	}
 }
