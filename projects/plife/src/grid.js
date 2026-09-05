@@ -39,7 +39,7 @@ class Grid {
 		return nearby;
 	}
 	
-	draw() {
+	draw(strokeColor) {
 		push();
 		
 		let max = 0;
@@ -60,7 +60,7 @@ class Grid {
 		}
 		
 		noFill();
-		stroke(0, 40);
+		stroke(strokeColor[0], strokeColor[1], strokeColor[2], 40);
 		
 		for (let x = 0; x <= width; x += this.cellSize)
 			line(x, 0, x, height);

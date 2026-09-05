@@ -28,7 +28,7 @@ class World {
 	draw() {
 		background(this.theme.colors.bg);
 		this.camera.apply();
-		this.grid.draw();
+		this.grid.draw(this.theme.colors.fg);
 
 		for (let atom of this.atoms) {
 			atom.draw();
