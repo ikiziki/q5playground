@@ -1,17 +1,17 @@
 let theme;
 
 function setup() {
-    theme = new ThemeEngine();
-    createCanvas(windowWidth, windowHeight);
+	world = new World();
 }
 
 function update(deltaTime) {
+	world.update(deltaTime);
 }
 
 function draw() {
-    background(theme.bg);
+	world.draw();
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+	world.windowResized();
 }
