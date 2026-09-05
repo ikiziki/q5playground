@@ -25,7 +25,7 @@ class World {
 		this.grid.clear();
 
 		for (let atom of this.atoms) {
-			atom.update(deltaTime);
+			atom.update(deltaTime, this.grid);
 			this.grid.insert(atom);
 		}
 	}
