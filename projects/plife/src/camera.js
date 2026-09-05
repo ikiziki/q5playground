@@ -14,9 +14,6 @@ class Camera {
 	reset() {
 		this.x = width / 2;
 		this.y = height / 2;
-		this.zoom = min(
-			windowWidth / width,
-			windowHeight / height
-		);
+		this.zoom = min(windowWidth / width, windowHeight / height) * 0.95;
 	}
 }

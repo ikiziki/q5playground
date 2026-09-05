@@ -2,16 +2,21 @@ class World {
 	constructor() {
 		this.theme = new ThemeEngine();
 		this.camera = new Camera();
-		this.grid = new Grid();
 		this.atoms = [];
 
 		createCanvas(windowWidth * 3, windowHeight * 3);
-		
+
+		this.grid = new Grid(100);
 		this.camera.reset();
 
 		for (let i = 0; i < 100; i++) {
 			this.atoms.push(
-				new Atom(createVector(random(width), random(height)))
+				new Atom(
+					createVector(
+						random(this.grid.offsetX, this.grid.offsetX + this.grid.width),
+						random(this.grid.offsetY, this.grid.offsetY + this.grid.height)
+					)
+				)
 			);
 		}
 	}
@@ -30,9 +35,8 @@ class World {
 		this.camera.apply();
 		this.grid.draw(this.theme.colors.fg);
 
-		for (let atom of this.atoms) {
-			atom.draw();
-		}
+		for (let atom of this.atoms)
+			atom.draw(this.theme.colors.fg);
 	}
 	
 	windowResized() {
