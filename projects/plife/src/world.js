@@ -4,7 +4,7 @@ class World {
 		this.camera = new Camera();
 		this.atoms = [];
 		this.settings = {
-			speciesCount: 7,
+			speciesCount: 4,
 			repulsionStrength: 120,
 			repulsionDistance: 40
 		};
@@ -15,7 +15,7 @@ class World {
 		this.gui = new GUI();
 		this.gui.add(this.display, "grid").name("Show Grid");
 		this.gui.add(this.display, "heatmap").name("Show Heatmap");
-		this.gui.add(this.settings, "speciesCount", 3, 7, 1)
+		this.gui.add(this.settings, "speciesCount", 2, 7, 1)
 			.name("Species")
 			.onChange((count) => this.setSpeciesCount(count));
 		this.gui.add(this.settings, "repulsionStrength", 0, 500)
