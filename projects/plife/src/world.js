@@ -5,6 +5,7 @@ class World {
 		this.atoms = [];
 		this.settings = {
 			speciesCount: 4,
+			atomCount: 100,
 			repulsionStrength: 120,
 			repulsionDistance: 40
 		};
@@ -18,6 +19,9 @@ class World {
 		this.gui.add(this.settings, "speciesCount", 2, 7, 1)
 			.name("Species")
 			.onChange((count) => this.setSpeciesCount(count));
+		this.gui.add(this.settings, "atomCount", 50, 5000, 1)
+			.name("Atoms")
+			.onChange((count) => this.setAtomCount(count));
 		this.gui.add(this.settings, "repulsionStrength", 0, 500)
 			.name("Repulsion Strength");
 		this.gui.add(this.settings, "repulsionDistance", 1, 100)
@@ -28,7 +32,11 @@ class World {
 		this.grid = new Grid(100);
 		this.camera.reset();
 
-		for (let i = 0; i < 100; i++) {
+		this.setAtomCount(this.settings.atomCount);
+	}
+
+	setAtomCount(count) {
+		while (this.atoms.length < count) {
 			this.atoms.push(
 				new Atom(
 					createVector(
@@ -39,6 +47,7 @@ class World {
 				)
 			);
 		}
+		this.atoms.length = count;
 	}
 
 	setSpeciesCount(count) {
