@@ -9,8 +9,8 @@ class World {
 			repulsionDistance: 40
 		};
 		this.display = {
-			grid: true,
-			heatmap: true
+			grid: false,
+			heatmap: false
 		};
 		this.gui = new GUI();
 		this.gui.add(this.display, "grid").name("Show Grid");
