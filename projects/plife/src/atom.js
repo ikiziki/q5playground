@@ -2,7 +2,7 @@ class Atom {
 	constructor(pos) {
 		this.pos = pos.copy();
 		this.velocity = p5.Vector.random2D().mult(random(20, 50));
-		this.radius = 6;
+		this.radius = 5;
 		this.mass = 1;
 		this.type = 0;
 	}
