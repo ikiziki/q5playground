@@ -55,7 +55,7 @@ class World {
 		this.grid.draw(this.theme.colors.fg, this.display);
 
 		for (let atom of this.atoms)
-			atom.draw(this.theme.colors.species[atom.type]);
+			atom.draw(this.theme.colors.species[atom.species]);
 	}
 	
 	windowResized() {
