@@ -3,6 +3,13 @@ class World {
 		this.theme = new ThemeEngine();
 		this.camera = new Camera();
 		this.atoms = [];
+		this.display = {
+			grid: true,
+			heatmap: true
+		};
+		this.gui = new GUI();
+		this.gui.add(this.display, "grid").name("Show Grid");
+		this.gui.add(this.display, "heatmap").name("Show Heatmap");
 
 		createCanvas(windowWidth * 3, windowHeight * 3);
 
@@ -45,7 +52,7 @@ class World {
 	draw() {
 		background(this.theme.colors.bg);
 		this.camera.apply();
-		this.grid.draw(this.theme.colors.fg);
+		this.grid.draw(this.theme.colors.fg, this.display);
 
 		for (let atom of this.atoms)
 			atom.draw(this.theme.colors.fg);

@@ -69,34 +69,38 @@ class Grid {
 		return nearby;
 	}
 	
-	draw(strokeColor) {
+	draw(strokeColor, display = { grid: true, heatmap: true }) {
 		push();
 		
-		let max = 0;
-		
-		for (let cell of this.cells.values())
-			max = Math.max(max, cell.length);
-		
-		noStroke();
-		
-		for (let [key, cell] of this.cells) {
-			let [col, row] = key.split(",").map(Number);
-			let x = this.offsetX + col * this.cellSize;
-			let y = this.offsetY + row * this.cellSize;
-			let intensity = max ? cell.length / max : 0;
+		if (display.heatmap) {
+			let max = 0;
 			
-			fill(255, 0, 0, intensity * 40);
-			rect(x, y, this.cellSize, this.cellSize);
+			for (let cell of this.cells.values())
+				max = Math.max(max, cell.length);
+			
+			noStroke();
+			
+			for (let [key, cell] of this.cells) {
+				let [col, row] = key.split(",").map(Number);
+				let x = this.offsetX + col * this.cellSize;
+				let y = this.offsetY + row * this.cellSize;
+				let intensity = max ? cell.length / max : 0;
+				
+				fill(255, 0, 0, intensity * 40);
+				rect(x, y, this.cellSize, this.cellSize);
+			}
 		}
 		
-		noFill();
-		stroke(strokeColor[0], strokeColor[1], strokeColor[2], 128);
-		
-		for (let x = this.offsetX; x <= this.offsetX + this.width; x += this.cellSize)
-			line(x, this.offsetY, x, this.offsetY + this.height);
-		
-		for (let y = this.offsetY; y <= this.offsetY + this.height; y += this.cellSize)
-			line(this.offsetX, y, this.offsetX + this.width, y);
+		if (display.grid) {
+			noFill();
+			stroke(strokeColor[0], strokeColor[1], strokeColor[2], 128);
+			
+			for (let x = this.offsetX; x <= this.offsetX + this.width; x += this.cellSize)
+				line(x, this.offsetY, x, this.offsetY + this.height);
+			
+			for (let y = this.offsetY; y <= this.offsetY + this.height; y += this.cellSize)
+				line(this.offsetX, y, this.offsetX + this.width, y);
+		}
 		
 		pop();
 	}
