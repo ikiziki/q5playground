@@ -13,10 +13,28 @@ class Grid {
 	clear() {
 		this.cells.clear();
 	}
+
+	wrap(value, size) {
+		return ((value % size) + size) % size;
+	}
+
+	wrappedDelta(from, to, size) {
+		let delta = to - from;
+		if (delta > size / 2) delta -= size;
+		else if (delta < -size / 2) delta += size;
+		return delta;
+	}
+
+	deltaBetween(first, second) {
+		return createVector(
+			this.wrappedDelta(first.x, second.x, this.width),
+			this.wrappedDelta(first.y, second.y, this.height)
+		);
+	}
 	
 	insert(object) {
-		let col = Math.floor((object.x - this.offsetX) / this.cellSize);
-		let row = Math.floor((object.y - this.offsetY) / this.cellSize);
+		let col = this.wrap(Math.floor((object.x - this.offsetX) / this.cellSize), this.cols);
+		let row = this.wrap(Math.floor((object.y - this.offsetY) / this.cellSize), this.rows);
 		let key = `${col},${row}`;
 		
 		if (!this.cells.has(key)) this.cells.set(key, []);
@@ -28,15 +46,21 @@ class Grid {
 		let col = Math.floor((object.x - this.offsetX) / this.cellSize);
 		let row = Math.floor((object.y - this.offsetY) / this.cellSize);
 		let range = Math.ceil(radius / this.cellSize);
+		let visited = new Set();
 		
 		for (let y = row - range; y <= row + range; y++) {
 			for (let x = col - range; x <= col + range; x++) {
-				let key = `${x},${y}`;
+				let wrappedCol = this.wrap(x, this.cols);
+				let wrappedRow = this.wrap(y, this.rows);
+				let key = `${wrappedCol},${wrappedRow}`;
+				if (visited.has(key)) continue;
+				visited.add(key);
 				if (!this.cells.has(key)) continue;
 				
 				for (let other of this.cells.get(key)) {
 					if (other === object) continue;
-					if (dist(object.x, object.y, other.x, other.y) <= radius)
+					let delta = this.deltaBetween(object, other);
+					if (delta.mag() <= radius)
 						nearby.push(other);
 				}
 			}

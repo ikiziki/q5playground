@@ -24,10 +24,22 @@ class World {
 	update(deltaTime) {
 		this.grid.clear();
 
-		for (let atom of this.atoms) {
-			atom.update(deltaTime, this.grid);
+		for (let atom of this.atoms)
+			atom.resetForces();
+
+		for (let atom of this.atoms)
 			this.grid.insert(atom);
+
+		for (let atom of this.atoms) {
+			let radius = atom.radius * 8;
+			for (let other of this.grid.getNearby(atom, radius)) {
+				let delta = this.grid.deltaBetween(atom, other);
+				atom.applyRepulsion(other, delta, delta.mag());
+			}
 		}
+
+		for (let atom of this.atoms)
+			atom.update(deltaTime, this.grid);
 	}
 	
 	draw() {
