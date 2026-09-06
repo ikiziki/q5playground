@@ -4,7 +4,7 @@ class Atom {
 		this.velocity = p5.Vector.random2D().mult(random(20, 50));
 		this.radius = 5;
 		this.mass = 1;
-		this.type = 0;
+		this.type = floor(random(7));
 		this.force = createVector(0, 0);
 	}
 	
