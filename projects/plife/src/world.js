@@ -3,6 +3,11 @@ class World {
 		this.theme = new ThemeEngine();
 		this.camera = new Camera();
 		this.atoms = [];
+		this.settings = {
+			speciesCount: 7,
+			repulsionStrength: 120,
+			repulsionDistance: 40
+		};
 		this.display = {
 			grid: true,
 			heatmap: true
@@ -10,6 +15,13 @@ class World {
 		this.gui = new GUI();
 		this.gui.add(this.display, "grid").name("Show Grid");
 		this.gui.add(this.display, "heatmap").name("Show Heatmap");
+		this.gui.add(this.settings, "speciesCount", 3, 7, 1)
+			.name("Species")
+			.onChange((count) => this.setSpeciesCount(count));
+		this.gui.add(this.settings, "repulsionStrength", 0, 500)
+			.name("Repulsion Strength");
+		this.gui.add(this.settings, "repulsionDistance", 1, 100)
+			.name("Repulsion Distance");
 
 		createCanvas(windowWidth * 3, windowHeight * 3);
 
@@ -22,10 +34,16 @@ class World {
 					createVector(
 						random(this.grid.offsetX, this.grid.offsetX + this.grid.width),
 						random(this.grid.offsetY, this.grid.offsetY + this.grid.height)
-					)
+					),
+					this.settings.speciesCount
 				)
 			);
 		}
+	}
+
+	setSpeciesCount(count) {
+		for (let atom of this.atoms)
+			atom.setSpeciesCount(count);
 	}
 	
 	update(deltaTime) {
@@ -41,7 +59,13 @@ class World {
 			let radius = atom.radius * 8;
 			for (let other of this.grid.getNearby(atom, radius)) {
 				let delta = this.grid.deltaBetween(atom, other);
-				atom.applyRepulsion(other, delta, delta.mag());
+				atom.applyRepulsion(
+					other,
+					delta,
+					delta.mag(),
+					this.settings.repulsionStrength,
+					this.settings.repulsionDistance
+				);
 			}
 		}
 

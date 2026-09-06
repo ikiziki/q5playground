@@ -1,10 +1,10 @@
 class Atom {
-	constructor(pos) {
+	constructor(pos, speciesCount) {
 		this.pos = pos.copy();
 		this.velocity = p5.Vector.random2D().mult(random(20, 50));
 		this.radius = 5;
 		this.mass = 1;
-		this.species = String.fromCharCode(65 + floor(random(7)));
+		this.setSpeciesCount(speciesCount);
 		this.force = createVector(0, 0);
 	}
 	
@@ -15,16 +15,19 @@ class Atom {
 		this.force.set(0, 0);
 	}
 
-	applyRepulsion(other, delta, distance) {
+	setSpeciesCount(count) {
+		this.species = String.fromCharCode(65 + floor(random(count)));
+	}
+
+	applyRepulsion(other, delta, distance, strength, interactionDistance) {
 		let minimumDistance = this.radius + other.radius;
-		let interactionDistance = minimumDistance * 4;
 		if (distance >= interactionDistance) return;
 
 		let direction = distance > 0 ? delta.copy().normalize() : p5.Vector.random2D();
 		let falloff = 1 - distance / interactionDistance;
 		let overlap = Math.max(0, minimumDistance - distance);
-		let strength = 120 * falloff * falloff + 800 * overlap / minimumDistance;
-		this.force.add(direction.mult(-strength));
+		let repulsion = strength * falloff * falloff + 800 * overlap / minimumDistance;
+		this.force.add(direction.mult(-repulsion));
 	}
 	
 	update(dt, grid) {
