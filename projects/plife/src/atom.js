@@ -30,9 +30,10 @@ class Atom {
 		this.force.add(direction.mult(-repulsion));
 	}
 	
-	update(dt, grid) {
+	update(dt, grid, speedLimit) {
 		let seconds = dt / 1000;
 		this.velocity.add(p5.Vector.mult(this.force, seconds / this.mass));
+		this.velocity.limit(speedLimit);
 		this.pos.add(p5.Vector.mult(this.velocity, seconds));
 		
 		if (this.x <= grid.offsetX)

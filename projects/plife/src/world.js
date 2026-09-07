@@ -6,6 +6,7 @@ class World {
 		this.settings = {
 			speciesCount: 4,
 			atomCount: 100,
+			speedLimit: 100,
 			repulsionStrength: 120,
 			repulsionDistance: 40
 		};
@@ -22,6 +23,8 @@ class World {
 		this.gui.add(this.settings, "atomCount", 50, 5000, 1)
 			.name("Atoms")
 			.onChange((count) => this.setAtomCount(count));
+		this.gui.add(this.settings, "speedLimit", 10, 300)
+			.name("Speed Limit");
 		this.gui.add(this.settings, "repulsionStrength", 0, 500)
 			.name("Repulsion Strength");
 		this.gui.add(this.settings, "repulsionDistance", 1, 100)
@@ -79,7 +82,7 @@ class World {
 		}
 
 		for (let atom of this.atoms)
-			atom.update(deltaTime, this.grid);
+			atom.update(deltaTime, this.grid, this.settings.speedLimit);
 	}
 	
 	draw() {
