@@ -33,6 +33,9 @@ class Atom {
 		let direction = distance > 0 ? delta.copy().normalize() : p5.Vector.random2D();
 		let falloff = 1 - distance / interactionDistance;
 		let overlap = Math.max(0, minimumDistance - distance);
+		if (overlap > 0)
+			this.pos.add(direction.copy().mult(-overlap * 0.5));
+
 		let repulsion = overlap > 0 ?
 			strength + 800 * overlap / minimumDistance :
 			0;
