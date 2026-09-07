@@ -15,6 +15,7 @@ class World {
 			heatmap: false
 		};
 		this.gui = new GUI();
+		this.gui.add(this, "resetDefaults").name("Reset Defaults");
 		this.gui.add(this.display, "grid").name("Show Grid");
 		this.gui.add(this.display, "heatmap").name("Show Heatmap");
 		this.gui.add(this.settings, "speciesCount", 2, 7, 1)
@@ -36,6 +37,20 @@ class World {
 		this.camera.reset();
 
 		this.setAtomCount(this.settings.atomCount);
+	}
+
+	resetDefaults() {
+		this.settings.speciesCount = 4;
+		this.settings.atomCount = 100;
+		this.settings.speedLimit = 100;
+		this.settings.repulsionStrength = 120;
+		this.settings.repulsionDistance = 40;
+		this.display.grid = false;
+		this.display.heatmap = false;
+		this.setAtomCount(this.settings.atomCount);
+		this.setSpeciesCount(this.settings.speciesCount);
+		for (let controller of this.gui.controllersRecursive())
+			controller.updateDisplay();
 	}
 
 	setAtomCount(count) {
