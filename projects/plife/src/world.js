@@ -8,7 +8,7 @@ class World {
 			atomCount: 100,
 			speedLimit: 100,
 			repulsionStrength: 120,
-			repulsionDistance: 40
+			repulsionDistance: 100
 		};
 		this.display = {
 			grid: false,
@@ -16,6 +16,7 @@ class World {
 		};
 		this.gui = new GUI();
 		this.gui.add(this, "resetDefaults").name("Reset Defaults");
+		this.gui.add(this, "randomizeRules").name("Randomize Rules");
 		this.gui.add(this.display, "grid").name("Show Grid");
 		this.gui.add(this.display, "heatmap").name("Show Heatmap");
 		this.gui.add(this.settings, "speciesCount", 2, 7, 1)
@@ -28,8 +29,9 @@ class World {
 			.name("Speed Limit");
 		this.gui.add(this.settings, "repulsionStrength", 0, 500)
 			.name("Repulsion Strength");
-		this.gui.add(this.settings, "repulsionDistance", 1, 100)
-			.name("Repulsion Distance");
+		this.gui.add(this.settings, "repulsionDistance", 1, 300)
+			.name("Interaction Distance");
+		this.addRuleControls();
 
 		createCanvas(windowWidth * 3, windowHeight * 3);
 
@@ -44,13 +46,33 @@ class World {
 		this.settings.atomCount = 100;
 		this.settings.speedLimit = 100;
 		this.settings.repulsionStrength = 120;
-		this.settings.repulsionDistance = 40;
+		this.settings.repulsionDistance = 100;
 		this.display.grid = false;
 		this.display.heatmap = false;
+		for (let key in rules)
+			rules[key] = defaultRules[key];
 		this.setAtomCount(this.settings.atomCount);
 		this.setSpeciesCount(this.settings.speciesCount);
 		for (let controller of this.gui.controllersRecursive())
 			controller.updateDisplay();
+	}
+
+	randomizeRules() {
+		for (let key in rules)
+			rules[key] = random(-100, 100);
+		for (let controller of this.gui.controllersRecursive())
+			controller.updateDisplay();
+	}
+
+	addRuleControls() {
+		let rulesFolder = this.gui.addFolder("Rules");
+		for (let source of "ABCDEFG") {
+			let sourceFolder = rulesFolder.addFolder(source);
+			for (let target of "ABCDEFG") {
+				let key = source + target;
+				sourceFolder.add(rules, key, -100, 100, 0.1).name(target);
+			}
+		}
 	}
 
 	setAtomCount(count) {
@@ -83,15 +105,19 @@ class World {
 			this.grid.insert(atom);
 
 		for (let atom of this.atoms) {
-			let radius = atom.radius * 8;
+			let radius = Math.max(
+				atom.radius * 8,
+				this.settings.repulsionDistance
+			);
 			for (let other of this.grid.getNearby(atom, radius)) {
 				let delta = this.grid.deltaBetween(atom, other);
-				atom.applyRepulsion(
+				atom.applyInteraction(
 					other,
 					delta,
 					delta.mag(),
 					this.settings.repulsionStrength,
-					this.settings.repulsionDistance
+					this.settings.repulsionDistance,
+					rules[atom.species + other.species]
 				);
 			}
 		}

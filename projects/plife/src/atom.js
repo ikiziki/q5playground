@@ -19,15 +19,25 @@ class Atom {
 		this.species = String.fromCharCode(65 + floor(random(count)));
 	}
 
-	applyRepulsion(other, delta, distance, strength, interactionDistance) {
+	applyInteraction(
+		other,
+		delta,
+		distance,
+		strength,
+		interactionDistance,
+		ruleStrength
+	) {
 		let minimumDistance = this.radius + other.radius;
 		if (distance >= interactionDistance) return;
 
 		let direction = distance > 0 ? delta.copy().normalize() : p5.Vector.random2D();
 		let falloff = 1 - distance / interactionDistance;
 		let overlap = Math.max(0, minimumDistance - distance);
-		let repulsion = strength * falloff * falloff + 800 * overlap / minimumDistance;
-		this.force.add(direction.mult(-repulsion));
+		let repulsion = overlap > 0 ?
+			strength + 800 * overlap / minimumDistance :
+			0;
+		let interaction = ruleStrength * 5 * falloff;
+		this.force.add(direction.mult(interaction - repulsion));
 	}
 	
 	update(dt, grid, speedLimit) {
